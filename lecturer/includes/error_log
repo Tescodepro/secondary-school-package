@@ -1,0 +1,43 @@
+[27-Oct-2022 12:43:55 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/otatotal/public_html/school-portal/lecturer/includes/database.php:17) in /home/otatotal/public_html/school-portal/lecturer/includes/login_code.php on line 28
+[27-Oct-2022 12:48:57 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/otatotal/public_html/school-portal/lecturer/includes/database.php:17) in /home/otatotal/public_html/school-portal/lecturer/includes/login_code.php on line 28
+[27-Oct-2022 12:49:55 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/otatotal/public_html/school-portal/lecturer/includes/database.php:17) in /home/otatotal/public_html/school-portal/lecturer/includes/login_code.php on line 35
+[02-May-2023 11:45:44 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in /home/otatotal/public_html/school-portal/lecturer/includes/database.php:9
+Stack trace:
+#0 /home/otatotal/public_html/school-portal/lecturer/includes/login_code.php(3): include()
+#1 {main}
+  thrown in /home/otatotal/public_html/school-portal/lecturer/includes/database.php on line 9
+[02-May-2023 11:47:23 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in /home/otatotal/public_html/school-portal/lecturer/includes/database.php:9
+Stack trace:
+#0 /home/otatotal/public_html/school-portal/lecturer/includes/login_code.php(3): include()
+#1 {main}
+  thrown in /home/otatotal/public_html/school-portal/lecturer/includes/database.php on line 9
+[11-Oct-2023 03:12:49 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'otatotal_portal'@'67.220.184.162' (using password: YES) in /home/otatotal/public_html/school-portal/lecturer/includes/database.php:9
+Stack trace:
+#0 /home/otatotal/public_html/school-portal/lecturer/includes/database.php(9): mysqli_connect('67.220.187.98', 'otatotal_portal', 'Tescode@portal', 'otatotal_studen...')
+#1 /home/otatotal/public_html/school-portal/lecturer/includes/login_code.php(3): include('/home/otatotal/...')
+#2 {main}
+  thrown in /home/otatotal/public_html/school-portal/lecturer/includes/database.php on line 9
+[07-Nov-2023 00:06:49 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'otatotal_portal'@'67.220.184.162' (using password: YES) in /home/otatotal/public_html/school-portal/lecturer/includes/database.php:9
+Stack trace:
+#0 /home/otatotal/public_html/school-portal/lecturer/includes/database.php(9): mysqli_connect('67.220.187.98', 'otatotal_portal', 'Tescode@portal', 'otatotal_studen...')
+#1 /home/otatotal/public_html/school-portal/lecturer/includes/login_code.php(3): include('/home/otatotal/...')
+#2 {main}
+  thrown in /home/otatotal/public_html/school-portal/lecturer/includes/database.php on line 9
+[07-Nov-2023 00:06:52 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'otatotal_portal'@'67.220.184.162' (using password: YES) in /home/otatotal/public_html/school-portal/lecturer/includes/database.php:9
+Stack trace:
+#0 /home/otatotal/public_html/school-portal/lecturer/includes/database.php(9): mysqli_connect('67.220.187.98', 'otatotal_portal', 'Tescode@portal', 'otatotal_studen...')
+#1 /home/otatotal/public_html/school-portal/lecturer/includes/login_code.php(3): include('/home/otatotal/...')
+#2 {main}
+  thrown in /home/otatotal/public_html/school-portal/lecturer/includes/database.php on line 9
+[07-Nov-2023 00:08:34 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'otatotal_portal'@'67.220.184.162' (using password: YES) in /home/otatotal/public_html/school-portal/lecturer/includes/database.php:9
+Stack trace:
+#0 /home/otatotal/public_html/school-portal/lecturer/includes/database.php(9): mysqli_connect('67.220.187.98', 'otatotal_portal', 'Tescode@portal', 'otatotal_studen...')
+#1 /home/otatotal/public_html/school-portal/lecturer/includes/login_code.php(3): include('/home/otatotal/...')
+#2 {main}
+  thrown in /home/otatotal/public_html/school-portal/lecturer/includes/database.php on line 9
+[07-Nov-2023 00:08:53 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'otatotal_portal'@'67.220.184.162' (using password: YES) in /home/otatotal/public_html/school-portal/lecturer/includes/database.php:9
+Stack trace:
+#0 /home/otatotal/public_html/school-portal/lecturer/includes/database.php(9): mysqli_connect('67.220.187.98', 'otatotal_portal', 'Tescode@portal', 'otatotal_studen...')
+#1 /home/otatotal/public_html/school-portal/lecturer/includes/login_code.php(3): include('/home/otatotal/...')
+#2 {main}
+  thrown in /home/otatotal/public_html/school-portal/lecturer/includes/database.php on line 9

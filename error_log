@@ -1,0 +1,15 @@
+[27-Oct-2022 12:24:58 UTC] PHP Warning:  Undefined variable $sum_total_payment_to_paystack in /home/otatotal/public_html/school-portal/fees.php on line 436
+[27-Oct-2022 12:24:58 UTC] PHP Warning:  Undefined variable $school_fee_amount_top in /home/otatotal/public_html/school-portal/fees.php on line 447
+[27-Oct-2022 12:24:58 UTC] PHP Warning:  Undefined variable $school_fee_topay in /home/otatotal/public_html/school-portal/fees.php on line 447
+[27-Oct-2022 12:24:58 UTC] PHP Warning:  Undefined variable $other_payment_arr in /home/otatotal/public_html/school-portal/fees.php on line 447
+[27-Oct-2022 12:24:58 UTC] PHP Warning:  Undefined variable $size_of_other_payment in /home/otatotal/public_html/school-portal/fees.php on line 447
+[27-Oct-2022 12:24:58 UTC] PHP Warning:  Undefined variable $sum_total_payment_to_paystack in /home/otatotal/public_html/school-portal/fees.php on line 447
+[27-Oct-2022 12:25:14 UTC] PHP Warning:  Undefined array key "school_fee_amount" in /home/otatotal/public_html/school-portal/includes/get_payment_recorded.php on line 7
+[27-Oct-2022 12:25:14 UTC] PHP Warning:  Undefined array key "school_fee_topay" in /home/otatotal/public_html/school-portal/includes/get_payment_recorded.php on line 8
+[27-Oct-2022 12:25:28 UTC] PHP Warning:  Undefined variable $sum_total_payment_to_paystack in /home/otatotal/public_html/school-portal/fees.php on line 436
+[27-Oct-2022 12:25:28 UTC] PHP Warning:  Undefined variable $school_fee_amount_top in /home/otatotal/public_html/school-portal/fees.php on line 447
+[27-Oct-2022 12:25:28 UTC] PHP Warning:  Undefined variable $school_fee_topay in /home/otatotal/public_html/school-portal/fees.php on line 447
+[27-Oct-2022 12:25:28 UTC] PHP Warning:  Undefined variable $other_payment_arr in /home/otatotal/public_html/school-portal/fees.php on line 447
+[27-Oct-2022 12:25:28 UTC] PHP Warning:  Undefined variable $size_of_other_payment in /home/otatotal/public_html/school-portal/fees.php on line 447
+[27-Oct-2022 12:25:28 UTC] PHP Warning:  Undefined variable $sum_total_payment_to_paystack in /home/otatotal/public_html/school-portal/fees.php on line 447
+[16-May-2023 14:01:32 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/otatotal/public_html/school-portal/options.php on line 33
