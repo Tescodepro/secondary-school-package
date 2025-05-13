@@ -22,7 +22,7 @@
 						<div class="bg-white rounded30 shadow-lg">
 							<div class="content-top-agile p-20 pb-0">
 								<h2 class="text-primary">OTA TOTAL ACADEMY</h2>
-								<img src="assets/images/logo.png" width="100" height="100">
+								<img src="assets/images/summit.png" width="120" height="80">
 								<p class="mb-0">Parents Results Checker.</p>							
 							</div>
 							<?php

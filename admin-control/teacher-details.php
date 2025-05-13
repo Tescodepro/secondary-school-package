@@ -1,5 +1,5 @@
 <?php
-include 'includes/isLogein.php';
+include 'includes/isLogedin.php';
 ?>
 <!doctype html>
 <html class="no-js" lang="">

@@ -7,8 +7,8 @@
                 <a href="index.php" class="logo">
                 <!-- logo-->
                 <div class="logo-lg">
-                    <span class="light-logo"><img src="assets/images/logo.png" alt="logo" width="50" height="50"></span>
-                    <span class="dark-logo"><img src="assets/images/logo.png" alt="logo"></span>
+                    <span class="light-logo"><img src="assets/images/summit.png" alt="logo" width="50" height="50"></span>
+                    <span class="dark-logo"><img src="assets/images/summit.png" alt="logo"></span>
                 </div>
                 </a>	
             </div>  

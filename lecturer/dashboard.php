@@ -28,7 +28,7 @@
 					<div class="box bg-primary-light pull-up">
 						<div class="box-body p-xl-5">							
 							<div class="row align-items-center">
-								<div class="col-12 col-lg-3"><img src="../assets/images/logo.png" alt=""></div>
+								<div class="col-12 col-lg-3"><img src="../assets/images/summit.png" alt=""></div>
 								<div class="col-12 col-lg-9">
 									<h3>Hello <?php echo $fullname; ?>, Welcome Back!</h3>
 									<p class="text-muted">Email: <span class="text-primary"><?php echo $email; ?></span></p>
