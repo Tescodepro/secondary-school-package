@@ -40,7 +40,7 @@
 
 								<img src="../assets/images/logo.png" alt="User Image" class="rounded-circle" height="100" width="100"> 
 
-								<h3 class="mb-0">OTA TOTAL ACADEMY</h3>	
+								<h3 class="mb-0">SCHOOL NAME</h3>	
 
 								<h4>Teacher's Portal</h4>
 

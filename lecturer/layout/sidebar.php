@@ -22,6 +22,14 @@
                             </span>
                         </a>
                         </li>
+                        <li class="">
+                        <a href="view_complaints.php">
+                            <i span class="icon-Layout-grid"><span class="path1"></span><span class="path2"></span></i>
+                            <span>View Complaints</span>
+                            <span class="pull-right-container">
+                            </span>
+                        </a>
+                        </li>
                         <li class="header">Result</li>
                         <li class="">
                         <a href="uploaded_result.php">

@@ -18,7 +18,7 @@
             <div class="login-box">
                 <div class="item-logo">
                     <img src="../assets/images/logo.png" alt="logo" width="100" height="100"> 
-                    <h3>OTA Total Academy <br>Admin Control System</h3>
+                    <h3>SCHOOL NAME <br>Admin Control System</h3>
                 </div>
                 <?php
                     if (isset($_GET['type'])) {

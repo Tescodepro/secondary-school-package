@@ -4,8 +4,9 @@ if (isset($_POST['pay_now'])) {
     $sum_total_payment_to_paystack = $_POST['total_amount'];
 
     $school_payment_ref = $_POST['school_payment_ref'];
-    $school_fee_amount_top = intval($_POST['school_fee_amount']);
-    $school_fee_topay = intval($_POST['school_fee_topay']);
+    $amount_paid = isset($row['school_fee_amount']) ? $row['school_fee_amount'] : 0;
+   $amount = isset($row['school_fee_topay']) ? $row['school_fee_topay'] : 0; // or null or ""
+
     $other_payment = $_POST['other_payment'];
     if ($other_payment == '') {
         $other_payment = [];
@@ -18,7 +19,7 @@ if (isset($_POST['pay_now'])) {
 
 
 
-    if ($school_fee_amount_top == 0 && sizeof($other_payment) != 0) { 
+    if ($amount_paid == 0 && sizeof($other_payment) != 0) { 
         foreach($other_payment as $payment) {
             $payment_exploded[] = explode('_', $payment);
         }

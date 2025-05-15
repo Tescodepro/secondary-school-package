@@ -345,7 +345,7 @@ include 'layout/head.php'
 
     <footer class="main-footer">
 
-        &copy; <?php echo date('Y') ?> OTA Total Academy
+        &copy; <?php echo date('Y') ?> SCHOOL NAME
 
     </footer>
 

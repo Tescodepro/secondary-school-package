@@ -145,6 +145,11 @@ $user_role = $_SESSION['user_role'] ?? '';
                                                                 $grade_point = 'D'; $grade_remark = 'Fairly Good';
                                                             } elseif ($total_score > 30) {
                                                                 $grade_point = 'E'; $grade_remark = 'Fair';
+
+
+
+
+                                                                
                                                             } else {
                                                                 $grade_point = 'F'; $grade_remark = 'Fail';
                                                             }
@@ -189,7 +194,7 @@ $user_role = $_SESSION['user_role'] ?? '';
     </div>
 
     <footer class="main-footer">
-        &copy; <?php echo date('Y') ?> OTA TOTAL ACADEMY |
+        &copy; <?php echo date('Y') ?> SCHOOL NAME |
     </footer>
 
     <div class="control-sidebar-bg"></div>

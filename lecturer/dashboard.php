@@ -38,6 +38,22 @@
 					</div>
 				</div>
 			</div>
+            
+            <?php
+                if (isset($_GET['msg']) && isset($_GET['type'])) {
+                    $msg = htmlspecialchars(urldecode($_GET['msg']));
+                    $type = $_GET['type'];
+
+                    $bgColor = ($type === 'success') ? '#04a08b' : '#04a08b';
+                    $textColor = ($type === 'success') ? '#ffffff' : '#ffffff';
+                    $borderColor = ($type === 'success') ? '#c3e6cb' : '#f5c6cb';
+
+
+                    echo "<div style='background-color: $bgColor; color: $textColor; border: 1px solid $borderColor; padding: 10px; margin-bottom: 20px; border-radius: 5px;'>
+                        $msg
+                    </div>";
+                }
+                ?>
 			<div class="row"> 
 				<div class="col-xl-12 col-md-12 col-12">
                     <div class="box">
@@ -53,7 +69,7 @@
   </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            &copy; <?php echo date('Y') ?> OTA Total Academy
+            &copy; <?php echo date('Y') ?> SCHOOL NAME
         </footer>
 
         

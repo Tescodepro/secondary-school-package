@@ -76,19 +76,23 @@ include 'layout/head.php'; ?>
                                                             ?>
                                                         </select>
                                                     </div>
-                                                    <div class="col-xl-4 col-lg-6 col-12 form-group">
-                                                        <label>Level *</label>
-                                                        <select required class="form-control" name="level">
-                                                            <option value="">Please Select Level *</option>
-                                                            <option value="1">1</option>
-                                                            <option value="2">2</option>
-                                                            <option value="3">3</option>
-                                                            <option value="4">4</option>
-                                                            <option value="5">5</option>
-                                                            <option value="6">6</option>
-                                                            <option value="7">7</option>
-                                                        </select>
-                                                    </div>
+                                                   <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Level</label>
+                                                    <select name="level" class="form-control">
+                                                        <option value="">--choose level--</option>
+                                                        <?php
+                                                        $letters = ['A', 'B', 'C'];
+                                                        for ($i = 1; $i <= 7; $i++) {
+                                                            foreach ($letters as $letter) {
+                                                                $value = "$i$letter";
+                                                                echo "<option value=\"$value\">$value</option>";
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </select>
+                                                </div>
+                                            </div>
                                                     <div class="col-xl-4 col-lg-6 col-12 form-group">
                                                         <label>Amount *</label>
                                                         <input type="number" placeholder="Amount" name="amount" class="form-control" id="">

@@ -20,6 +20,22 @@
               <?php include_once('layout/side-bar.php');?>
             <!-- Sidebar Area End Here -->
             <div class="dashboard-content-one">
+            <?php
+if (isset($_SESSION['dashboard_msg'])) {
+    $msg = $_SESSION['dashboard_msg'];
+    $alertType = $msg['type'] == 'success' ? 'alert-success' : 'alert-danger';
+
+    echo '<div class="alert ' . $alertType . ' alert-dismissible fade show" role="alert" style="margin: 20px;">
+        ' . htmlspecialchars($msg['text']) . '
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="this.parentElement.style.display=\'none\'">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>';
+
+    unset($_SESSION['dashboard_msg']); // Clear the message after showing
+}
+?>
+
                 <!-- Breadcubs Area Start Here -->
                 <div class="breadcrumbs-area">
                     <h3>Admin Dashboard</h3>

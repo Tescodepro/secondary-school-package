@@ -31,6 +31,15 @@
                             <i class="fa fa-angle-right pull-right"></i>
                             </span>
                         </a>
+                        </li>	
+                        <li class="">
+                        <a href="log_complaint.php">
+                            <i class="icon-Write"><span class="path1"></span><span class="path2"></span></i>
+                            <span>Log Complaint</span>
+                            <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                            </span>
+                        </a>
                         </li>			
                         <!-- <li class="">
                             <a href="#">
