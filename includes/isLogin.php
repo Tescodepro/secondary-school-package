@@ -1,6 +1,9 @@
 <?php
 // Initialize the session
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 // Reporting None error
 // error_reporting(0);
 

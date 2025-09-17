@@ -9,6 +9,23 @@
                         <li class="nav-item sidebar-nav-item">
                             <a href="dashboard.php" class="nav-link"></i><span>Dashboard</span></a> 
                         </li>
+                              <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i class="fas fa-tools"></i><span>Manage Site</span></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link"><i class="fas fa-angle-right"></i>Background Color</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link"><i
+                                            class="fas fa-angle-right"></i>School Logo</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link"><i class="fas fa-angle-right"></i>School Name</a>
+                                </li>
+                                 <li class="nav-item">
+                                    <a href="#" class="nav-link"><i class="fas fa-angle-right"></i>Footer</a>
+                                </li>
+                            </ul>
                         <li class="nav-item sidebar-nav-item">
                             <a href="#" class="nav-link"><i class="flaticon-classmates"></i><span>Students</span></a>
                             <ul class="nav sub-group-menu">
@@ -99,15 +116,11 @@
                             <a href="subject.php" class="nav-link"><i class="flaticon-open-book"></i><span>Subject</span></a>
                         </li>
                         
-                        <li class="nav-item sidebar-nav-item">
-                            <a href="#" class="nav-link"><i
+                         <li class="nav-item ">
+                            <a href="view_complaints.php" class="nav-link"><i
                                     class="flaticon-multiple-users-silhouette"></i><span>View Complaints</span></a>
-                            <ul class="nav sub-group-menu">
-                                <li class="nav-item">
-                                    <a href="view_complaints.php" class="nav-link"><i class="fas fa-angle-right"></i>All
-                                        Complaints</a>
+                         
                                 </li>
-                              
                             </ul>
                         </li>
                     </ul>

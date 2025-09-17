@@ -16,7 +16,7 @@
                         </li>
                         <li class="">
                         <a href="fees.php">
-                            <i span class="icon-Layout-grid"><span class="path1"></span><span class="path2"></span></i>
+                            <i span class="fas fa-receipt"><span class="path1"></span><span class="path2"></span></i>
                             <span>Fees</span>
                             <span class="pull-right-container">
                             </span>
@@ -25,22 +25,28 @@
                         <li class="header">Others</li>
                         <li class="">
                         <a href="result.php">
-                            <i class="icon-Write"><span class="path1"></span><span class="path2"></span></i>
+                            <i class="fa fa-graduation-cap"><span class="path1"></span><span class="path2"></span></i>
                             <span>My Result</span>
                             <span class="pull-right-container">
-                            <i class="fa fa-angle-right pull-right"></i>
                             </span>
                         </a>
                         </li>	
                         <li class="">
                         <a href="log_complaint.php">
-                            <i class="icon-Write"><span class="path1"></span><span class="path2"></span></i>
+                            <i class="fa fa-exclamation-circle"><span class="path1"></span><span class="path2"></span></i>
                             <span>Log Complaint</span>
                             <span class="pull-right-container">
-                            <i class="fa fa-angle-right pull-right"></i>
                             </span>
                         </a>
-                        </li>			
+                        </li>	
+                          <li class="">
+                        <a href="response.php">
+                            <i class="fa fa-reply"><span class="path1"></span><span class="path2"></span></i>
+                            <span>view Response</span>
+                            </span>
+                        </a>
+                        </li>	
+                   
                         <!-- <li class="">
                             <a href="#">
                                 <i class="icon-File"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
@@ -55,6 +61,7 @@
                 </div>
             </section>
             <div class="sidebar-footer">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
                 <a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Settings" aria-describedby="tooltip92529"><span class="icon-Settings-2"></span></a>
                 <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Email"></a>
                 <a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><span class="icon-Lock-overturning"><span class="path1"></span><span class="path2"></span></span></a>

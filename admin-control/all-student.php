@@ -77,9 +77,10 @@ include 'layout/head.php';
                                                     <td>{$row['level']}</td>
                                                     <td>{$row['religion']}</td>
                                                     <td>
-                                                        <a href='all-student.php?id={$row['unique_id']}&delete=true' class='btn btn-danger text-white'><i class='fas fa-trash'></i></a>
-                                                        <a href='student-details.php?id={$row['unique_id']}' class='btn btn-success text-white'><i class='fas fa-eye'></i></a>
-                                                        <a href='all-student.php?id={$row['unique_id']}&modal=true' class='btn btn-primary text-white'><i class='fas fa-file-upload'></i></a>
+                                                        <a href='all-student.php?delete_id={$row['unique_id']}' class='btn btn-danger text-white' onclick=\"return confirm('Are you sure you want to delete this student?')\"><i class='fas fa-trash'></i></a>
+                                                       <a href='student-details.php?id={$row['unique_id']}' class='btn btn-success text-white'><i class='fas fa-eye'></i></a>
+                                                        <a href='edit-student.php?id={$row['unique_id']}' class='btn btn-primary text-white'><i class='fas fa-edit'></i></a>
+
                                                     </td>
                                                 </tr>";
                                                 $i++;

@@ -46,7 +46,7 @@
                                     <div class="col-12 col-lg-9">
                                         <h3>Hello <?php echo $fullname; ?>, Welcome Back!</h3>
                                         <p class="text-dark mb-0 font-size-15" style="padding-right: 10px; padding-bottom: 5px">
-                                            <?php echo $class_name.' '.$level;?> - <span class="text-primary"> <?php echo $class_code.' '.$level;?> </span>
+                                            <?php echo $class_name.' '.$level;?>  <span class="text-primary"> 
                                         </p>
                                         <p class="text-dark mb-0 font-size-15" style="padding-right: 10px; padding-bottom: 5px">
                                             <?php echo $unique_id;?> </span>

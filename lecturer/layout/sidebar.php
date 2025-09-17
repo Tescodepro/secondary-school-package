@@ -24,7 +24,7 @@
                         </li>
                         <li class="">
                         <a href="view_complaints.php">
-                            <i span class="icon-Layout-grid"><span class="path1"></span><span class="path2"></span></i>
+                            <i span class="fa fa-reply"><span class="path1"></span><span class="path2"></span></i>
                             <span>View Complaints</span>
                             <span class="pull-right-container">
                             </span>
@@ -54,6 +54,7 @@
                 </div>
             </section>
             <div class="sidebar-footer">
+                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
                 <a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Settings" aria-describedby="tooltip92529"><span class="icon-Settings-2"></span></a>
                 <a href="" class="link" data-toggle="tooltip" title="" data-original-title="Email"></a>
                 <a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><span class="icon-Lock-overturning"><span class="path1"></span><span class="path2"></span></span></a>

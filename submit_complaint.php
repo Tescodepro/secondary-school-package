@@ -46,9 +46,10 @@ if ($subject && $message) {
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
             $mail->Username = 'harnarf581@gmail.com';
-            $mail->Password = 'nddz mdvo efvf jucu'; 
-            $mail->SMTPSecure = 'tls';
-            $mail->Port = 587;
+            $mail->Password = 'nddzmdvoefvfjucu'; 
+                $mail->SMTPSecure = 'ssl';                
+    $mail->Port = 465;                         
+
 
             $mail->setFrom('harnarf581@gmail.com', 'School System');
 
