@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.11
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Mar 02, 2023 at 01:09 AM
--- Server version: 5.7.41
--- PHP Version: 7.4.33
+-- Host: 127.0.0.1
+-- Generation Time: Sep 17, 2025 at 04:18 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -34,14 +33,15 @@ CREATE TABLE `admin_login` (
   `password` varchar(150) NOT NULL,
   `f_name` varchar(150) NOT NULL,
   `token` varchar(500) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `admin_login`
 --
 
 INSERT INTO `admin_login` (`id`, `email`, `password`, `f_name`, `token`) VALUES
-(1, 'tescode@gmail.com', '1234567890', 'Tescode', '103009');
+(1, 'tescodepro@gmail.com', '1234567890', 'Tescode', '103009'),
+(2, 'alaofamily70@gmail.com', '1234567890', 'Harnarf', '103009');
 
 -- --------------------------------------------------------
 
@@ -53,7 +53,7 @@ CREATE TABLE `admission_admin` (
   `id` int(11) NOT NULL,
   `email` varchar(150) NOT NULL,
   `password` varchar(200) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `admission_admin`
@@ -76,10 +76,10 @@ CREATE TABLE `admission_user` (
   `assign_id` varchar(50) NOT NULL,
   `application_found` varchar(250) NOT NULL DEFAULT '0',
   `acceptance_found` varchar(250) NOT NULL DEFAULT '0',
-  `add_status` int(11) NOT NULL DEFAULT '0',
-  `is_register` int(11) NOT NULL DEFAULT '0',
+  `add_status` int(11) NOT NULL DEFAULT 0,
+  `is_register` int(11) NOT NULL DEFAULT 0,
   `approved_course` varchar(400) DEFAULT 'pending'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `admission_user`
@@ -98,7 +98,7 @@ CREATE TABLE `classes` (
   `id` int(11) NOT NULL,
   `class_code` varchar(100) NOT NULL,
   `class_name` varchar(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `classes`
@@ -107,7 +107,8 @@ CREATE TABLE `classes` (
 INSERT INTO `classes` (`id`, `class_code`, `class_name`) VALUES
 (1, 'JSS', 'Junior Secondary School'),
 (2, 'SSS', 'Senior Secondary School'),
-(3, 'PRY', 'Primary');
+(3, 'PRY', 'Primary'),
+(5, 'NURSERY ', 'Nursery ');
 
 -- --------------------------------------------------------
 
@@ -122,7 +123,7 @@ CREATE TABLE `class_assign` (
   `level` varchar(150) NOT NULL,
   `subject` varchar(150) NOT NULL,
   `season` varchar(150) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `class_assign`
@@ -354,7 +355,15 @@ INSERT INTO `class_assign` (`assign_id`, `teacher_id`, `class_id`, `level`, `sub
 (227, '807', '2', '3A1', '1', ''),
 (228, '807', '2', '3A2', '1', ''),
 (229, '808', '2', '2A1', '2', ''),
-(230, '808', '2', '2A2', '2', '');
+(230, '808', '2', '2A2', '2', ''),
+(231, '767', '1', '1A', '6', ''),
+(232, '770', '1', '1A', '5', ''),
+(233, '18', '5', '1A', '6', ''),
+(234, '19', '5', '1A', '6', ''),
+(235, '19', '5', '1A', '9', ''),
+(236, '20', '5', '1A', '9', ''),
+(237, '20', '', '1A', '17', ''),
+(238, '20', '5', '1A', '28', '');
 
 -- --------------------------------------------------------
 
@@ -367,30 +376,30 @@ CREATE TABLE `class_track` (
   `class_id` varchar(100) NOT NULL,
   `level` varchar(100) NOT NULL,
   `user_id` varchar(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `class_track`
 --
 
 INSERT INTO `class_track` (`id`, `class_id`, `level`, `user_id`) VALUES
-(1, '1', '1A', 'OTA/22/001'),
-(2, '1', '1A', 'OTA/22/002'),
-(3, '1', '1A', 'OTA/22/003'),
-(4, '1', '1A', 'OTA/22/004'),
-(5, '1', '1A', 'OTA/22/005'),
-(6, '1', '1A', 'OTA/22/006'),
-(7, '1', '1A', 'OTA/22/007'),
-(8, '1', '1A', 'OTA/22/008'),
-(9, '1', '1A', 'OTA/22/009'),
-(10, '1', '1A', 'OTA/22/010'),
-(11, '1', '1A', 'OTA/22/011'),
-(12, '1', '1A', 'OTA/22/012'),
-(13, '1', '1A', 'OTA/22/013'),
-(14, '1', '1A', 'OTA/22/014'),
-(15, '1', '1A', 'OTA/22/015'),
-(16, '1', '1A', 'OTA/22/016'),
-(17, '1', '1A', 'OTA/22/017'),
+(1, '5', '1A', 'OTA/22/001'),
+(2, '5', '1A', 'OTA/22/002'),
+(3, '5', '1', 'OTA/22/003'),
+(4, '5', '1', 'OTA/22/004'),
+(5, '5', '1', 'OTA/22/005'),
+(6, '5', '1', 'OTA/22/006'),
+(7, '5', '1', 'OTA/22/007'),
+(8, '5', '1', 'OTA/22/008'),
+(9, '5', '1', 'OTA/22/009'),
+(10, '5', '1', 'OTA/22/010'),
+(11, '5', '1', 'OTA/22/011'),
+(12, '5', '1', 'OTA/22/012'),
+(13, '5', '1', 'OTA/22/013'),
+(14, '5', '1', 'OTA/22/014'),
+(15, '5', '1', 'OTA/22/015'),
+(16, '5', '1', 'OTA/22/016'),
+(17, '5', '1', 'OTA/22/017'),
 (18, '1', '1A', 'OTA/22/018'),
 (19, '1', '1A', 'OTA/22/019'),
 (20, '1', '1A', 'OTA/22/020'),
@@ -1076,7 +1085,50 @@ INSERT INTO `class_track` (`id`, `class_id`, `level`, `user_id`) VALUES
 (700, '1', '2E', 'OTA/21/0126'),
 (701, '1', '2E', 'OTA/21/0127'),
 (702, '1', '2E', 'OTA/21/0128'),
-(703, '1', '2E', 'OTA/21/0129');
+(703, '1', '2E', 'OTA/21/0129'),
+(704, '1', '1A', 'Sun/comas/001');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `complaints`
+--
+
+CREATE TABLE `complaints` (
+  `id` int(11) NOT NULL,
+  `user_id` varchar(250) NOT NULL,
+  `user_type` enum('student','teacher') NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `status` enum('pending','resolved') DEFAULT 'pending',
+  `date_submitted` datetime DEFAULT current_timestamp(),
+  `response` text DEFAULT NULL,
+  `date_responded` datetime DEFAULT NULL,
+  `responded_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `complaints`
+--
+
+INSERT INTO `complaints` (`id`, `user_id`, `user_type`, `subject`, `message`, `status`, `date_submitted`, `response`, `date_responded`, `responded_at`) VALUES
+(1, 'OTA/22/001', 'student', 'School  Fee', 'I am unable to pay my school fee', 'resolved', '2025-07-23 00:59:13', 'Done', '2025-07-23 14:00:14', NULL),
+(2, 'OTA/22/001', 'student', 'Hostel fee', 'I am unable to pay my hostel fee', 'resolved', '2025-07-23 01:01:55', 'Done', '2025-07-23 14:09:30', NULL),
+(3, 'OTA/22/001', 'student', ',mdeiow', '11323xsadwa', 'resolved', '2025-07-23 03:56:04', 'done', '2025-07-23 16:57:05', NULL),
+(4, 'OTA/22/001', 'student', 'School  Fee', 'hjidwui', 'resolved', '2025-07-23 04:09:55', 'done', '2025-07-23 17:12:34', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `complaint_notifications`
+--
+
+CREATE TABLE `complaint_notifications` (
+  `id` int(11) NOT NULL,
+  `complaint_id` int(11) NOT NULL,
+  `recipient_email` varchar(255) NOT NULL,
+  `sent_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1095,50 +1147,17 @@ CREATE TABLE `result` (
   `class_id` varchar(100) NOT NULL,
   `terms` varchar(100) NOT NULL,
   `level` varchar(100) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `result`
 --
 
 INSERT INTO `result` (`id`, `user_id`, `teacher_id`, `subject`, `attitude`, `total_ca`, `exam_score`, `class_id`, `terms`, `level`, `created_at`, `updated_at`) VALUES
-(22, 'STU/2022/0001/jmIg', '19', '1', '5', '0', '0', '1', 'first', '2', '2022-10-17 03:00:59', '2022-10-17 03:00:59'),
-(23, 'OTA/19/001', '793', '2', '5', '12', '67', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(24, 'OTA/19/002', '793', '2', '4', '10', '54', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(25, 'OTA/19/003', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(26, 'OTA/19/004', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(27, 'OTA/19/005', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(28, 'OTA/19/006', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(29, 'OTA/19/007', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(30, 'OTA/19/008', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(31, 'OTA/19/009', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(32, 'OTA/19/010', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(33, 'OTA/19/011', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(34, 'OTA/19/012', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(35, 'OTA/19/013', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(36, 'OTA/19/014', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(37, 'OTA/19/015', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(38, 'OTA/19/016', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(39, 'OTA/19/017', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(40, 'OTA/19/018', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(41, 'OTA/19/019', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(42, 'OTA/19/020', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(43, 'OTA/19/021', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(44, 'OTA/19/022', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(45, 'OTA/19/023', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(46, 'OTA/19/024', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(47, 'OTA/19/025', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(48, 'OTA/19/026', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(49, 'OTA/19/027', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(50, 'OTA/19/028', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(51, 'OTA/19/029', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(52, 'OTA/19/030', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(53, 'OTA/19/031', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(54, 'OTA/19/032', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(55, 'OTA/19/033', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08'),
-(56, 'OTA/19/034', '793', '2', '0', '0', '0', '1', 'first', '3B', '2023-02-17 16:10:08', '2023-02-17 16:10:08');
+(497, 'OTA/22/002', '20', '28', 'Business Studies', '11', '5', '5', 'first', '1A', '2025-07-23 13:24:24', '2025-07-23 13:24:24'),
+(496, 'OTA/22/001', '20', '28', 'Business Studies', '10', '20', '5', 'first', '1A', '2025-07-23 13:24:24', '2025-07-23 13:24:24');
 
 -- --------------------------------------------------------
 
@@ -1149,7 +1168,7 @@ INSERT INTO `result` (`id`, `user_id`, `teacher_id`, `subject`, `attitude`, `tot
 CREATE TABLE `sessions` (
   `id` int(11) NOT NULL,
   `session` varchar(150) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `sessions`
@@ -1158,6 +1177,32 @@ CREATE TABLE `sessions` (
 INSERT INTO `sessions` (`id`, `session`) VALUES
 (1, '2020/2021'),
 (2, '2021/2022');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+CREATE TABLE `settings` (
+  `id` int(11) NOT NULL,
+  `school_name` varchar(255) NOT NULL,
+  `logo` varchar(255) DEFAULT NULL,
+  `navbar_color` varchar(50) DEFAULT '#0d6efd',
+  `navbar_text_color` varchar(50) DEFAULT '#ffffff',
+  `footer_text` varchar(255) DEFAULT '© 2025 SCHOOL NAME',
+  `footer_color` varchar(50) DEFAULT '#222222',
+  `text_alignment` enum('left','center','right') DEFAULT 'left',
+  `background_color` varchar(50) DEFAULT '#f8f9fa',
+  `logo_size` varchar(20) DEFAULT '100px'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`id`, `school_name`, `logo`, `navbar_color`, `navbar_text_color`, `footer_text`, `footer_color`, `text_alignment`, `background_color`, `logo_size`) VALUES
+(1, 'My School', NULL, '#0d6efd', '#ffffff', '© 2025 SCHOOL NAME', '#222222', 'left', '#f8f9fa', '100px');
 
 -- --------------------------------------------------------
 
@@ -1173,8 +1218,8 @@ CREATE TABLE `set_payment` (
   `level` varchar(100) NOT NULL,
   `user_id` varchar(100) NOT NULL,
   `session` varchar(100) NOT NULL,
-  `time_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `time_added` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `set_payment`
@@ -1185,7 +1230,30 @@ INSERT INTO `set_payment` (`payment_id`, `payment_type`, `amount`, `class_id`, `
 (2, 'hostel fee', '10000', '1', '3', '10101010011', '2022/2023', '2022-06-07 18:29:14'),
 (3, 'food', '1000', '1', '2', '10101010011', '2022/2023', '2022-06-14 15:53:57'),
 (4, 'computer', '1000', '1', '2', 'null', '2021/2022', '2022-07-04 08:04:23'),
-(5, 'outstanding', '2323', 'null', 'null', 'STU/2022/0000/tWia', '2020/2021', '2022-07-04 14:33:04');
+(5, 'outstanding', '2323', 'null', 'null', 'STU/2022/0000/tWia', '2020/2021', '2022-07-04 14:33:04'),
+(6, 'hostel fee', '5000', '1', '3B', 'null', '2021/2022', '2025-05-13 14:48:18'),
+(7, '', '20000', '1', '3B', 'OTA/20/0038', '2020/2021', '2025-05-13 14:57:30'),
+(8, 'Hostel fee', '199991', '5', '1A', 'null', '2020/2021', '2025-07-23 14:21:44'),
+(9, 'School Fee', '200000', '5', '1A', 'null', '2021/2022', '2025-08-12 09:43:56');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `site_settings`
+--
+
+CREATE TABLE `site_settings` (
+  `id` int(11) NOT NULL,
+  `school_name` varchar(255) DEFAULT 'My School',
+  `school_logo` varchar(255) DEFAULT 'img/logo1.png',
+  `logo_size` varchar(20) DEFAULT '120px',
+  `navbar_color` varchar(20) DEFAULT '#007bff',
+  `navbar_text_color` varchar(20) DEFAULT '#ffffff',
+  `background_color` varchar(20) DEFAULT '#f8f9fa',
+  `footer_text` varchar(255) DEFAULT '© 2025 Developed by Autobyte and Tescode',
+  `footer_color` varchar(20) DEFAULT '#343a40',
+  `text_alignment` enum('left','center','right') DEFAULT 'left'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1204,32 +1272,32 @@ CREATE TABLE `students_info` (
   `parent_name` varchar(200) NOT NULL,
   `parent_address` varchar(250) NOT NULL,
   `parent_phone_num` varchar(50) NOT NULL,
-  `admition_status` int(11) NOT NULL DEFAULT '0',
+  `admition_status` int(11) NOT NULL DEFAULT 0,
   `addmission_id` varchar(100) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `students_info`
 --
 
 INSERT INTO `students_info` (`id`, `user_id`, `blood_group`, `religion`, `gender`, `dob`, `parent_email`, `parent_name`, `parent_address`, `parent_phone_num`, `admition_status`, `addmission_id`) VALUES
-(1, 'OTA/22/001', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
-(2, 'OTA/22/002', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
-(3, 'OTA/22/003', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
-(4, 'OTA/22/004', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
-(5, 'OTA/22/005', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
-(6, 'OTA/22/006', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
-(7, 'OTA/22/007', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
-(8, 'OTA/22/008', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
-(9, 'OTA/22/009', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
-(10, 'OTA/22/010', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
-(11, 'OTA/22/011', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
-(12, 'OTA/22/012', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
-(13, 'OTA/22/013', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
-(14, 'OTA/22/014', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
-(15, 'OTA/22/015', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
-(16, 'OTA/22/016', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
-(17, 'OTA/22/017', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
+(1, 'OTA/22/001', 'O+', 'Islam', 'M', '2020-05-29', 'harnarf581@gmail.com', 'Abdulazeez Jamiu Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
+(2, 'OTA/22/002', 'O+', 'Islam', 'M', '2019-06-16', 'anyemail@parent.com', 'Abdulmaroof Abdulr Parent', 'Ota, Ogun State', '09020226390', 0, NULL),
+(3, 'OTA/22/003', 'O+', 'Islam', 'M', '2019-09-18', 'anyemail@parent.com', 'Abdulrasaq Hassan Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
+(4, 'OTA/22/004', 'O+', 'Islam', 'M', '', 'anyemail@parent.com', 'Ahmad Ridwan Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
+(5, 'OTA/22/005', 'O+', 'Islam', 'M', '2020-07-05', 'anyemail@parent.com', 'Fashola Adnan Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
+(6, 'OTA/22/006', 'O+', 'Islam', 'M', '2019-12-21', 'anyemail@parent.com', 'Moh\'d\'awwal Hassan Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
+(7, 'OTA/22/007', 'O+', 'Islam', 'M', '2020-08-30', 'anyemail@parent.com', 'Nurudeen Faruq Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
+(8, 'OTA/22/008', 'O+', 'Islam', 'M', '2019-10-19', 'anyemail@parent.com', 'Raji Mahbub Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
+(9, 'OTA/22/009', 'O+', 'Islam', 'M', '2019-02-27', 'anyemail@parent.com', 'Shalahudeen Shalah Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
+(10, 'OTA/22/010', 'O+', 'Islam', 'M', '2019-12-14', 'anyemail@parent.com', 'Soliu Abdulsalam Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
+(11, 'OTA/22/011', 'O+', 'Islam', 'F', '2020-06-10', 'anyemail@parent.com', 'Adebisi Aliyah Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
+(12, 'OTA/22/012', 'O+', 'Islam', 'F', '2020-07-11', 'anyemail@parent.com', 'Adebisi Rokeebah Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
+(13, 'OTA/22/013', 'O+', 'Islam', 'F', '2020-02-19', 'anyemail@parent.com', 'Adebisi Qudrotullahi Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
+(14, 'OTA/22/014', 'O+', 'Islam', 'F', '2019-06-10', 'anyemail@parent.com', 'Ahmadu Memunah Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
+(15, 'OTA/22/015', 'O+', 'Islam', 'M', '', 'anyemail@parent.com', 'Ismail SoffiyahParent', 'Ota, Ogun State', '8093921440', 0, NULL),
+(16, 'OTA/22/016', 'O+', 'Islam', 'F', '2019-06-10', 'anyemail@parent.com', 'Nafiu Faeedah Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
+(17, 'OTA/22/017', 'O+', 'Islam', 'F', '2019-06-10', 'anyemail@parent.com', 'Olaiya MordiyahParent', 'Ota, Ogun State', '8093921440', 0, NULL),
 (18, 'OTA/22/018', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
 (19, 'OTA/22/019', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
 (20, 'OTA/22/020', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
@@ -1465,7 +1533,7 @@ INSERT INTO `students_info` (`id`, `user_id`, `blood_group`, `religion`, `gender
 (250, 'OTA/20/036', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
 (251, 'OTA/20/037', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
 (252, 'OTA/20/0038', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
-(253, 'OTA/20/0039', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
+(253, 'OTA/20/0039', 'O+', 'Islam', 'male', '00/00/2022', 'alaonafisat1@gmail.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
 (254, 'OTA/20/0040', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
 (255, 'OTA/20/0041', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
 (256, 'OTA/20/0042', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
@@ -1956,7 +2024,8 @@ INSERT INTO `students_info` (`id`, `user_id`, `blood_group`, `religion`, `gender
 (739, 'OTA/21/0126', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
 (740, 'OTA/21/0127', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
 (741, 'OTA/21/0128', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
-(742, 'OTA/21/0129', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL);
+(742, 'OTA/21/0129', 'O+', 'Islam', 'male', '00/00/2022', 'anyemail@parent.com', 'Abdulkabeer Parent', 'Ota, Ogun State', '8093921440', 0, NULL),
+(743, 'OTA/20/0039', 'A-', 'Islam', 'male', '14/05/2025', 'alaonafisat1@gmail.com', 'Akintunde', 'Irra Road', '09020226390', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -1971,26 +2040,21 @@ CREATE TABLE `student_payment` (
   `amount_paid` varchar(250) DEFAULT NULL,
   `payment_type` varchar(200) DEFAULT NULL,
   `session` varchar(250) DEFAULT NULL,
-  `date_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_time` timestamp NOT NULL DEFAULT current_timestamp(),
   `paystack_retune` varchar(250) DEFAULT NULL,
   `paystack_ref` varchar(200) DEFAULT NULL,
   `payment_status` varchar(11) NOT NULL DEFAULT '3',
   `amount_justpaid` varchar(200) DEFAULT NULL,
   `school_payment_ref` varchar(300) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `student_payment`
 --
 
 INSERT INTO `student_payment` (`id`, `user_id`, `amount_topay`, `amount_paid`, `payment_type`, `session`, `date_time`, `paystack_retune`, `paystack_ref`, `payment_status`, `amount_justpaid`, `school_payment_ref`) VALUES
-(13, 'STU/2022/0000/tWia', '2323', '2323', 'outstanding', '2020/2021', '2022-07-05 10:47:44', '1', '315017915', '3', '2323', '02:07 05-07-22/826069360'),
-(14, 'STU/2022/0000/tWia', '1000', '1000', 'food', '2020/2021', '2022-07-05 10:47:44', '1', '315017915', '3', '1000', '02:07 05-07-22/826069360'),
-(16, 'STU/2022/0000/tWia', '20000', '187371', 'school fee', '2020/2021', '2022-07-05 11:03:21', '1', '869554967', '3', '100', '12:07 05-07-22/390562647'),
-(17, 'STU/2022/0000/tWia', '1000', '1000', 'computer', '2020/2021', '2022-07-06 02:12:21', '1', '999825551', '3', '1000', '03:07 06-07-22/643632162'),
-(18, 'STU/2022/0013/ZdBC', '10000', '10000', 'hostel fee', '2020/2021', '2022-10-16 17:51:01', NULL, NULL, '3', '10000', '07:10 16-10-22/384049954'),
-(19, 'STU/2022/0001/jmIg', '1000', '1000', 'food', '2020/2021', '2022-10-27 12:25:14', NULL, NULL, '3', '1000', '12:10 27-10-22/749268860'),
-(20, 'STU/2022/0001/jmIg', '1000', '1000', 'computer', '2020/2021', '2022-10-27 12:25:14', NULL, NULL, '3', '1000', '12:10 27-10-22/749268860');
+(23, 'OTA/22/001', '199991', '199991', 'Hostel fee', '2020/2021', '2025-07-23 14:22:44', NULL, NULL, '3', '199991', '11:07 30-07-25/691106529'),
+(24, 'OTA/22/001', '200000', '200000', 'School Fee', '2020/2021', '2025-08-12 09:44:08', NULL, NULL, '3', '200000', '11:08 12-08-25/801350465');
 
 -- --------------------------------------------------------
 
@@ -2001,7 +2065,7 @@ INSERT INTO `student_payment` (`id`, `user_id`, `amount_topay`, `amount_paid`, `
 CREATE TABLE `subject` (
   `id` int(11) NOT NULL,
   `subject_name` varchar(150) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `subject`
@@ -2036,7 +2100,8 @@ INSERT INTO `subject` (`id`, `subject_name`) VALUES
 (26, 'Christian Religious Studies'),
 (27, 'National Values Education'),
 (28, 'Business Studies'),
-(29, 'Store Management');
+(29, 'Store Management'),
+(30, 'AI');
 
 -- --------------------------------------------------------
 
@@ -2051,7 +2116,7 @@ CREATE TABLE `teachers_info` (
   `blood_group` varchar(100) NOT NULL,
   `religion` varchar(100) NOT NULL,
   `gender` varchar(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `teachers_info`
@@ -2152,7 +2217,9 @@ INSERT INTO `teachers_info` (`id`, `teacher_id`, `dob`, `blood_group`, `religion
 (92, 'J01', '00/00/2022', '', 'islam', 'male'),
 (93, 'S01', '00/00/2022', '', 'islam', 'male'),
 (94, 'S40', '00/00/2022', '', 'islam', 'male'),
-(95, 'J29', '00/00/2022', '', 'islam', 'male');
+(95, 'J29', '00/00/2022', '', 'islam', 'male'),
+(96, '644247/Ri', '10/07/2025', 'B+', 'Islam', 'Female'),
+(97, '376945/BS', '03/07/2025', 'B+', 'Islam', 'female');
 
 -- --------------------------------------------------------
 
@@ -2170,806 +2237,32 @@ CREATE TABLE `users` (
   `role` varchar(100) NOT NULL,
   `status` int(11) NOT NULL,
   `addmission_id` varchar(100) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `f_name`, `username`, `email`, `password`, `unique_id`, `role`, `status`, `addmission_id`) VALUES
-(20, 'Abanikanda Farishta', 'OTA/22/001', 'akinlabi@gmail.com', '99202', 'OTA/22/001', 'student', 1, NULL),
-(21, 'abdulAzeez Mariam', 'OTA/22/002', 'akinlabi@gmail.com', '65671', 'OTA/22/002', 'student', 1, NULL),
-(22, 'AbdulHakeem Azeez', 'OTA/22/003', 'akinlabi@gmail.com', '18463', 'OTA/22/003', 'student', 1, NULL),
-(23, 'Abdulwahab Idris Donald', 'OTA/22/004', 'akinlabi@gmail.com', '50651', 'OTA/22/004', 'student', 1, NULL),
-(24, 'Adewole AbdulRoheem', 'OTA/22/005', 'akinlabi@gmail.com', '36620', 'OTA/22/005', 'student', 1, NULL),
-(25, 'Adewunmi hephizah', 'OTA/22/006', 'akinlabi@gmail.com', '30843', 'OTA/22/006', 'student', 1, NULL),
-(26, 'Ahmad Aminat', 'OTA/22/007', 'akinlabi@gmail.com', '14024', 'OTA/22/007', 'student', 1, NULL),
-(27, 'Alabi Iretomiwa', 'OTA/22/008', 'akinlabi@gmail.com', '64824', 'OTA/22/008', 'student', 1, NULL),
-(28, 'Aloba Khadijah', 'OTA/22/009', 'akinlabi@gmail.com', '37425', 'OTA/22/009', 'student', 1, NULL),
-(29, 'Aregbesola Semilore', 'OTA/22/010', 'akinlabi@gmail.com', '47063', 'OTA/22/010', 'student', 1, NULL),
-(30, 'Aremu Al-Ameen', 'OTA/22/011', 'akinlabi@gmail.com', '43292', 'OTA/22/011', 'student', 1, NULL),
-(31, 'Aribisala Esther', 'OTA/22/012', 'akinlabi@gmail.com', '73154', 'OTA/22/012', 'student', 1, NULL),
-(32, 'Awhangowu Emmanuel', 'OTA/22/013', 'akinlabi@gmail.com', '44277', 'OTA/22/013', 'student', 1, NULL),
-(33, 'Badejo Grace', 'OTA/22/014', 'akinlabi@gmail.com', '34053', 'OTA/22/014', 'student', 1, NULL),
-(34, 'Dada Fareedah', 'OTA/22/015', 'akinlabi@gmail.com', '98457', 'OTA/22/015', 'student', 1, NULL),
-(35, 'Emenike Destiny C.', 'OTA/22/016', 'akinlabi@gmail.com', '61934', 'OTA/22/016', 'student', 1, NULL),
-(36, 'Idowu Olatunbosun', 'OTA/22/017', 'akinlabi@gmail.com', '26860', 'OTA/22/017', 'student', 1, NULL),
-(37, 'Idris Mukhtar', 'OTA/22/018', 'akinlabi@gmail.com', '14143', 'OTA/22/018', 'student', 1, NULL),
-(38, 'Ladeji AbdulMalik', 'OTA/22/019', 'akinlabi@gmail.com', '25947', 'OTA/22/019', 'student', 1, NULL),
-(39, 'Lateef Abdullah', 'OTA/22/020', 'akinlabi@gmail.com', '22775', 'OTA/22/020', 'student', 1, NULL),
-(40, 'Lawal AbdulMuiz', 'OTA/22/021', 'akinlabi@gmail.com', '77770', 'OTA/22/021', 'student', 1, NULL),
-(41, 'Nnebo Kaosichukwu Blaise', 'OTA/22/022', 'akinlabi@gmail.com', '36288', 'OTA/22/022', 'student', 1, NULL),
-(42, 'Ogundele David Tinuola', 'OTA/22/023', 'akinlabi@gmail.com', '71680', 'OTA/22/023', 'student', 1, NULL),
-(43, 'Olabode Arthur', 'OTA/22/024', 'akinlabi@gmail.com', '11128', 'OTA/22/024', 'student', 1, NULL),
-(44, 'Oludeji Ahqibah', 'OTA/22/025', 'akinlabi@gmail.com', '43423', 'OTA/22/025', 'student', 1, NULL),
-(45, 'Owolabi Fuad Adeola', 'OTA/22/026', 'akinlabi@gmail.com', '34753', 'OTA/22/026', 'student', 1, NULL),
-(46, 'Oyalowo Hameedah', 'OTA/22/027', 'akinlabi@gmail.com', '46721', 'OTA/22/027', 'student', 1, NULL),
-(47, 'Salaudeen Halimah', 'OTA/22/028', 'akinlabi@gmail.com', '35532', 'OTA/22/028', 'student', 1, NULL),
-(48, 'Salaudeen Jubril', 'OTA/22/029', 'akinlabi@gmail.com', '70162', 'OTA/22/029', 'student', 1, NULL),
-(49, 'Tijani-Sherif Mustabishrah', 'OTA/22/030', 'akinlabi@gmail.com', '72545', 'OTA/22/030', 'student', 1, NULL),
-(50, 'Ulaocha Precious', 'OTA/22/031', 'akinlabi@gmail.com', '67595', 'OTA/22/031', 'student', 1, NULL),
-(51, 'Adebowale Temiloluwa', 'OTA/22/0032', 'akinlabi@gmail.com', '46897', 'OTA/22/0032', 'student', 1, NULL),
-(52, 'Aderinsola Eniola', 'OTA/22/0033', 'akinlabi@gmail.com', '90975', 'OTA/22/0033', 'student', 1, NULL),
-(53, 'Adewale Oluwadarasimi', 'OTA/22/0034', 'akinlabi@gmail.com', '20926', 'OTA/22/0034', 'student', 1, NULL),
-(54, 'Ajibola Temitope Abdullah', 'OTA/22/0035', 'akinlabi@gmail.com', '81291', 'OTA/22/0035', 'student', 1, NULL),
-(55, 'Akindele Oluwanifemi', 'OTA/22/0036', 'akinlabi@gmail.com', '73793', 'OTA/22/0036', 'student', 1, NULL),
-(56, 'Akinfenwa Abdullah', 'OTA/22/0037', 'akinlabi@gmail.com', '73388', 'OTA/22/0037', 'student', 1, NULL),
-(57, 'Aronu Charles', 'OTA/22/0038', 'akinlabi@gmail.com', '40508', 'OTA/22/0038', 'student', 1, NULL),
-(58, 'Babalola Samuel', 'OTA/22/0039', 'akinlabi@gmail.com', '12527', 'OTA/22/0039', 'student', 1, NULL),
-(59, 'Bakare Abdulhamid', 'OTA/22/0040', 'akinlabi@gmail.com', '57546', 'OTA/22/0040', 'student', 1, NULL),
-(60, 'Bakare Sodiq', 'OTA/22/0041', 'akinlabi@gmail.com', '11449', 'OTA/22/0041', 'student', 1, NULL),
-(61, 'Chikaodi Winner', 'OTA/22/0042', 'akinlabi@gmail.com', '42508', 'OTA/22/0042', 'student', 1, NULL),
-(62, 'Deinde Abibat', 'OTA/22/0043', 'akinlabi@gmail.com', '14227', 'OTA/22/0043', 'student', 1, NULL),
-(63, 'Jimoh Mordiyyah', 'OTA/22/0044', 'akinlabi@gmail.com', '12232', 'OTA/22/0044', 'student', 1, NULL),
-(64, 'Kudeti Abdulhaleem', 'OTA/22/0045', 'akinlabi@gmail.com', '30424', 'OTA/22/0045', 'student', 1, NULL),
-(65, 'Lawal Abdulrahmon', 'OTA/22/0046', 'akinlabi@gmail.com', '69807', 'OTA/22/0046', 'student', 1, NULL),
-(66, 'Ohanwusi Samuel', 'OTA/22/0047', 'akinlabi@gmail.com', '92660', 'OTA/22/0047', 'student', 1, NULL),
-(67, 'Oladimeji Toyeebat', 'OTA/22/0048', 'akinlabi@gmail.com', '70337', 'OTA/22/0048', 'student', 1, NULL),
-(68, 'Olanrewaju Nasir', 'OTA/22/0049', 'akinlabi@gmail.com', '75763', 'OTA/22/0049', 'student', 1, NULL),
-(69, 'Olodan Abdulgafar', 'OTA/22/0050', 'akinlabi@gmail.com', '88521', 'OTA/22/0050', 'student', 1, NULL),
-(70, 'Olosunde Ahliyah', 'OTA/22/0051', 'akinlabi@gmail.com', '68256', 'OTA/22/0051', 'student', 1, NULL),
-(71, 'Olumide Adeoye', 'OTA/22/0052', 'akinlabi@gmail.com', '20407', 'OTA/22/0052', 'student', 1, NULL),
-(72, 'Oniyide Aishat', 'OTA/22/0053', 'akinlabi@gmail.com', '46368', 'OTA/22/0053', 'student', 1, NULL),
-(73, 'Owonikoko Balikis', 'OTA/22/0054', 'akinlabi@gmail.com', '54391', 'OTA/22/0054', 'student', 1, NULL),
-(74, 'Saka Abdullah', 'OTA/22/0055', 'akinlabi@gmail.com', '35117', 'OTA/22/0055', 'student', 1, NULL),
-(75, 'Salam Marzouq', 'OTA/22/0056', 'akinlabi@gmail.com', '21143', 'OTA/22/0056', 'student', 1, NULL),
-(76, 'Ugwueze David', 'OTA/22/0057', 'akinlabi@gmail.com', '69909', 'OTA/22/0057', 'student', 1, NULL),
-(77, 'Adeladan Oluwafemi', 'OTA/22/0058', 'akinlabi@gmail.com', '26411', 'OTA/22/0058', 'student', 1, NULL),
-(78, 'Adelakun  Misturah', 'OTA/22/0059', 'akinlabi@gmail.com', '68763', 'OTA/22/0059', 'student', 1, NULL),
-(79, 'Adewale Oluwadarasimi', 'OTA/22/0060', 'akinlabi@gmail.com', '52295', 'OTA/22/0060', 'student', 1, NULL),
-(80, 'Akingbigbide Mustapha ', 'OTA/22/0061', 'akinlabi@gmail.com', '28303', 'OTA/22/0061', 'student', 1, NULL),
-(81, 'Akinwehin  Opeyemi ', 'OTA/22/0062', 'akinlabi@gmail.com', '37609', 'OTA/22/0062', 'student', 1, NULL),
-(82, 'Al-Ameen  Bolaji  ', 'OTA/22/0063', 'akinlabi@gmail.com', '84475', 'OTA/22/0063', 'student', 1, NULL),
-(83, 'Balogun Aishat', 'OTA/22/0064', 'akinlabi@gmail.com', '20755', 'OTA/22/0064', 'student', 1, NULL),
-(84, 'Busari Khamaldeen', 'OTA/22/0065', 'akinlabi@gmail.com', '20307', 'OTA/22/0065', 'student', 1, NULL),
-(85, 'David Enang', 'OTA/22/0066', 'akinlabi@gmail.com', '63017', 'OTA/22/0066', 'student', 1, NULL),
-(86, 'David Olatunji', 'OTA/22/0067', 'akinlabi@gmail.com', '71161', 'OTA/22/0067', 'student', 1, NULL),
-(87, 'Dosunmu Abdulwadad', 'OTA/22/0068', 'akinlabi@gmail.com', '37714', 'OTA/22/0068', 'student', 1, NULL),
-(88, 'Idris Rhoda Bolatito', 'OTA/22/0069', 'akinlabi@gmail.com', '10510', 'OTA/22/0069', 'student', 1, NULL),
-(89, 'Ishaq Kelly', 'OTA/22/0070', 'akinlabi@gmail.com', '68507', 'OTA/22/0070', 'student', 1, NULL),
-(90, 'Lawal Summayah', 'OTA/22/0071', 'akinlabi@gmail.com', '76304', 'OTA/22/0071', 'student', 1, NULL),
-(91, 'Matanmi Ameenah', 'OTA/22/0072', 'akinlabi@gmail.com', '54709', 'OTA/22/0072', 'student', 1, NULL),
-(92, 'Moronkola Muh-Awwal', 'OTA/22/0073', 'akinlabi@gmail.com', '29573', 'OTA/22/0073', 'student', 1, NULL),
-(93, 'Nwanchukwu Favour', 'OTA/22/0074', 'akinlabi@gmail.com', '79480', 'OTA/22/0074', 'student', 1, NULL),
-(94, 'Ogunnowo Ayodele', 'OTA/22/0075', 'akinlabi@gmail.com', '39298', 'OTA/22/0075', 'student', 1, NULL),
-(95, 'Ogunsun Michelle', 'OTA/22/0076', 'akinlabi@gmail.com', '22352', 'OTA/22/0076', 'student', 1, NULL),
-(96, 'Olakitan Mustapha', 'OTA/22/0077', 'akinlabi@gmail.com', '25112', 'OTA/22/0077', 'student', 1, NULL),
-(97, 'Olaofe Soiyullah', 'OTA/22/0078', 'akinlabi@gmail.com', '44380', 'OTA/22/0078', 'student', 1, NULL),
-(98, 'Osisiogu Chigozie', 'OTA/22/0079', 'akinlabi@gmail.com', '18546', 'OTA/22/0079', 'student', 1, NULL),
-(99, 'Sosanya Anjola', 'OTA/22/0080', 'akinlabi@gmail.com', '54161', 'OTA/22/0080', 'student', 1, NULL),
-(100, 'Yusuf Abdul?basit', 'OTA/22/0081', 'akinlabi@gmail.com', '94007', 'OTA/22/0081', 'student', 1, NULL),
-(101, 'Yusuf Zaynab', 'OTA/22/0082', 'akinlabi@gmail.com', '18588', 'OTA/22/0082', 'student', 1, NULL),
-(102, 'Adegbenjo Oluwafikunayomi', 'OTA/22/0083', 'akinlabi@gmail.com', '66224', 'OTA/22/0083', 'student', 1, NULL),
-(103, 'Adesanya Adebola', 'OTA/22/0084', 'akinlabi@gmail.com', '40475', 'OTA/22/0084', 'student', 1, NULL),
-(104, 'Adisa Abdulsamad', 'OTA/22/0085', 'akinlabi@gmail.com', '35604', 'OTA/22/0085', 'student', 1, NULL),
-(105, 'Ajiboye Marvelous', 'OTA/22/0086', 'akinlabi@gmail.com', '33115', 'OTA/22/0086', 'student', 1, NULL),
-(106, 'Akingbibe Omogbolahan', 'OTA/22/0087', 'akinlabi@gmail.com', '13472', 'OTA/22/0087', 'student', 1, NULL),
-(107, 'Akinsola Muktar', 'OTA/22/0088', 'akinlabi@gmail.com', '65068', 'OTA/22/0088', 'student', 1, NULL),
-(108, 'Akinyefa Dominion', 'OTA/22/0089', 'akinlabi@gmail.com', '46005', 'OTA/22/0089', 'student', 1, NULL),
-(109, 'Alli Faiz', 'OTA/22/0090', 'akinlabi@gmail.com', '20520', 'OTA/22/0090', 'student', 1, NULL),
-(110, 'Areghan Happiness', 'OTA/22/0091', 'akinlabi@gmail.com', '49675', 'OTA/22/0091', 'student', 1, NULL),
-(111, 'Balogun Olajuwon', 'OTA/22/0092', 'akinlabi@gmail.com', '66471', 'OTA/22/0092', 'student', 1, NULL),
-(112, 'Daniel Great', 'OTA/22/0093', 'akinlabi@gmail.com', '16310', 'OTA/22/0093', 'student', 1, NULL),
-(113, 'Jamiu Azeemat', 'OTA/22/0094', 'akinlabi@gmail.com', '54955', 'OTA/22/0094', 'student', 1, NULL),
-(114, 'Odedele Ibukun', 'OTA/22/0095', 'akinlabi@gmail.com', '24315', 'OTA/22/0095', 'student', 1, NULL),
-(115, 'Olanrewaju Rodiat', 'OTA/22/0096', 'akinlabi@gmail.com', '53668', 'OTA/22/0096', 'student', 1, NULL),
-(116, 'Olaogun Muhammed', 'OTA/22/0097', 'akinlabi@gmail.com', '75616', 'OTA/22/0097', 'student', 1, NULL),
-(117, 'Oludayo Emmanuel', 'OTA/22/0098', 'akinlabi@gmail.com', '71577', 'OTA/22/0098', 'student', 1, NULL),
-(118, 'Olukeye Fiyin', 'OTA/22/0099', 'akinlabi@gmail.com', '28278', 'OTA/22/0099', 'student', 1, NULL),
-(119, 'Onuigbo Victor', 'OTA/22/0100', 'akinlabi@gmail.com', '93149', 'OTA/22/0100', 'student', 1, NULL),
-(120, 'Shobulo Omolayo', 'OTA/22/0101', 'akinlabi@gmail.com', '82877', 'OTA/22/0101', 'student', 1, NULL),
-(121, 'Uthman Zaynab Abisola', 'OTA/22/0102', 'akinlabi@gmail.com', '96793', 'OTA/22/0102', 'student', 1, NULL),
-(122, 'Abdulrauf Muslim', 'OTA/21/001', 'akinlabi@gmail.com', '81142', 'OTA/21/001', 'student', 1, NULL),
-(123, 'Abiodun Fareed', 'OTA/21/002', 'akinlabi@gmail.com', '62457', 'OTA/21/002', 'student', 1, NULL),
-(124, 'Abiola Fawaz', 'OTA/21/003', 'akinlabi@gmail.com', '74877', 'OTA/21/003', 'student', 1, NULL),
-(125, 'Adebajo Abdulmalik', 'OTA/21/004', 'akinlabi@gmail.com', '75953', 'OTA/21/004', 'student', 1, NULL),
-(126, 'Adekoya Hafeezah', 'OTA/21/005', 'akinlabi@gmail.com', '11960', 'OTA/21/005', 'student', 1, NULL),
-(127, 'Adeniyi Olumuyiwa', 'OTA/21/006', 'akinlabi@gmail.com', '15682', 'OTA/21/006', 'student', 1, NULL),
-(128, 'Ajibade Ridwan', 'OTA/21/007', 'akinlabi@gmail.com', '52171', 'OTA/21/007', 'student', 1, NULL),
-(129, 'Ajijola Fawwaz', 'OTA/21/008', 'akinlabi@gmail.com', '63871', 'OTA/21/008', 'student', 1, NULL),
-(130, 'Alabi Mujeebah', 'OTA/21/009', 'akinlabi@gmail.com', '52039', 'OTA/21/009', 'student', 1, NULL),
-(131, 'Atoyebi Abdul Rahman', 'OTA/21/010', 'akinlabi@gmail.com', '67238', 'OTA/21/010', 'student', 1, NULL),
-(132, 'Babarinde Sumaya', 'OTA/21/011', 'akinlabi@gmail.com', '43897', 'OTA/21/011', 'student', 1, NULL),
-(133, 'Babasanya Eniola', 'OTA/21/012', 'akinlabi@gmail.com', '20816', 'OTA/21/012', 'student', 1, NULL),
-(134, 'Banjoko Eniola', 'OTA/21/013', 'akinlabi@gmail.com', '97085', 'OTA/21/013', 'student', 1, NULL),
-(135, 'Bayewu Oluwaloye', 'OTA/21/014', 'akinlabi@gmail.com', '86578', 'OTA/21/014', 'student', 1, NULL),
-(136, 'Efundowo Livingsource', 'OTA/21/015', 'akinlabi@gmail.com', '32997', 'OTA/21/015', 'student', 1, NULL),
-(137, 'Esin Nafeesah', 'OTA/21/016', 'akinlabi@gmail.com', '48545', 'OTA/21/016', 'student', 1, NULL),
-(138, 'Garuba Mardiyyah', 'OTA/21/017', 'akinlabi@gmail.com', '79914', 'OTA/21/017', 'student', 1, NULL),
-(139, 'Haruna Muheet', 'OTA/21/018', 'akinlabi@gmail.com', '86214', 'OTA/21/018', 'student', 1, NULL),
-(140, 'Ibrahim Faizah', 'OTA/21/019', 'akinlabi@gmail.com', '38296', 'OTA/21/019', 'student', 1, NULL),
-(141, 'Lawal Fatia', 'OTA/21/020', 'akinlabi@gmail.com', '82040', 'OTA/21/020', 'student', 1, NULL),
-(142, 'Obadimu Teslim', 'OTA/21/021', 'akinlabi@gmail.com', '10148', 'OTA/21/021', 'student', 1, NULL),
-(143, 'Ogunrinde Matinah', 'OTA/21/022', 'akinlabi@gmail.com', '87061', 'OTA/21/022', 'student', 1, NULL),
-(144, 'Olayiwola Demilade', 'OTA/21/023', 'akinlabi@gmail.com', '67282', 'OTA/21/023', 'student', 1, NULL),
-(145, 'Omotayo Felix Kehinde', 'OTA/21/024', 'akinlabi@gmail.com', '51148', 'OTA/21/024', 'student', 1, NULL),
-(146, 'Omotayo Felix Taiwo', 'OTA/21/025', 'akinlabi@gmail.com', '26725', 'OTA/21/025', 'student', 1, NULL),
-(147, 'Oyafajo Abdulbasit', 'OTA/21/026', 'akinlabi@gmail.com', '28821', 'OTA/21/026', 'student', 1, NULL),
-(148, 'Oyedeji Muiz', 'OTA/21/027', 'akinlabi@gmail.com', '68240', 'OTA/21/027', 'student', 1, NULL),
-(149, 'Oyinlola Fatiu', 'OTA/21/028', 'akinlabi@gmail.com', '10506', 'OTA/21/028', 'student', 1, NULL),
-(150, 'Salami Awwal', 'OTA/21/029', 'akinlabi@gmail.com', '37603', 'OTA/21/029', 'student', 1, NULL),
-(151, 'Salau Aishat', 'OTA/21/030', 'akinlabi@gmail.com', '33836', 'OTA/21/030', 'student', 1, NULL),
-(152, 'Salaudeen Nafeesat', 'OTA/21/031', 'akinlabi@gmail.com', '70316', 'OTA/21/031', 'student', 1, NULL),
-(153, 'Sanni Fuad', 'OTA/21/032', 'akinlabi@gmail.com', '20527', 'OTA/21/032', 'student', 1, NULL),
-(154, 'Shasanmi Marvelous', 'OTA/21/033', 'akinlabi@gmail.com', '20151', 'OTA/21/033', 'student', 1, NULL),
-(155, 'Abatan Abdulmalik', 'OTA/21/0034', 'akinlabi@gmail.com', '17005', 'OTA/21/0034', 'student', 1, NULL),
-(156, 'Abdulsalam Abdulbasit', 'OTA/21/0035', 'akinlabi@gmail.com', '96060', 'OTA/21/0035', 'student', 1, NULL),
-(157, 'Adebanjo Wonuola', 'OTA/21/0036', 'akinlabi@gmail.com', '13161', 'OTA/21/0036', 'student', 1, NULL),
-(158, 'Adeleke Haliyah ', 'OTA/21/0037', 'akinlabi@gmail.com', '53808', 'OTA/21/0037', 'student', 1, NULL),
-(159, 'Adeniji Maryam', 'OTA/21/0038', 'akinlabi@gmail.com', '56802', 'OTA/21/0038', 'student', 1, NULL),
-(160, 'Agoro Sofeeyah', 'OTA/21/0039', 'akinlabi@gmail.com', '55916', 'OTA/21/0039', 'student', 1, NULL),
-(161, 'Akinde Aminat', 'OTA/21/0040', 'akinlabi@gmail.com', '21861', 'OTA/21/0040', 'student', 1, NULL),
-(162, 'Akinjobi Fatimah', 'OTA/21/0041', 'akinlabi@gmail.com', '24685', 'OTA/21/0041', 'student', 1, NULL),
-(163, 'Akinyode Oluwatofunmi', 'OTA/21/0042', 'akinlabi@gmail.com', '82908', 'OTA/21/0042', 'student', 1, NULL),
-(164, 'Akiode Abdul Hakeem', 'OTA/21/0043', 'akinlabi@gmail.com', '33379', 'OTA/21/0043', 'student', 1, NULL),
-(165, 'Almahally Khairat', 'OTA/21/0044', 'akinlabi@gmail.com', '21101', 'OTA/21/0044', 'student', 1, NULL),
-(166, 'Aremu Haleemah', 'OTA/21/0045', 'akinlabi@gmail.com', '51697', 'OTA/21/0045', 'student', 1, NULL),
-(167, 'Bankole Balikis', 'OTA/21/0046', 'akinlabi@gmail.com', '32949', 'OTA/21/0046', 'student', 1, NULL),
-(168, 'Bankole Shefiqot', 'OTA/21/0047', 'akinlabi@gmail.com', '90013', 'OTA/21/0047', 'student', 1, NULL),
-(169, 'Hajiowo Teslimah', 'OTA/21/0048', 'akinlabi@gmail.com', '38965', 'OTA/21/0048', 'student', 1, NULL),
-(170, 'Jimoh Abdullah', 'OTA/21/0049', 'akinlabi@gmail.com', '91389', 'OTA/21/0049', 'student', 1, NULL),
-(171, 'Kaluluola Mololuwa', 'OTA/21/0050', 'akinlabi@gmail.com', '58081', 'OTA/21/0050', 'student', 1, NULL),
-(172, 'King Khaalidah', 'OTA/21/0051', 'akinlabi@gmail.com', '84522', 'OTA/21/0051', 'student', 1, NULL),
-(173, 'Kuditi Miftaudeen', 'OTA/21/0052', 'akinlabi@gmail.com', '45498', 'OTA/21/0052', 'student', 1, NULL),
-(174, 'Liasu Fareedah', 'OTA/21/0053', 'akinlabi@gmail.com', '27856', 'OTA/21/0053', 'student', 1, NULL),
-(175, 'Lukmon Abdulmuiz', 'OTA/21/0054', 'akinlabi@gmail.com', '99825', 'OTA/21/0054', 'student', 1, NULL),
-(176, 'Ogunbiyi Abdulquadri', 'OTA/21/0055', 'akinlabi@gmail.com', '59368', 'OTA/21/0055', 'student', 1, NULL),
-(177, 'Ojelade Praise', 'OTA/21/0056', 'akinlabi@gmail.com', '74745', 'OTA/21/0056', 'student', 1, NULL),
-(178, 'Ojo Muqthar', 'OTA/21/0057', 'akinlabi@gmail.com', '67733', 'OTA/21/0057', 'student', 1, NULL),
-(179, 'Olabisi Aishat', 'OTA/21/0058', 'akinlabi@gmail.com', '92341', 'OTA/21/0058', 'student', 1, NULL),
-(180, 'Olakunle Oluwasemilore', 'OTA/21/0059', 'akinlabi@gmail.com', '75220', 'OTA/21/0059', 'student', 1, NULL),
-(181, 'Olanrewaju Emmanuella', 'OTA/21/0060', 'akinlabi@gmail.com', '70415', 'OTA/21/0060', 'student', 1, NULL),
-(182, 'Oloyede Oluwadarasimi', 'OTA/21/0061', 'akinlabi@gmail.com', '47694', 'OTA/21/0061', 'student', 1, NULL),
-(183, 'Popoola Amirah', 'OTA/21/0062', 'akinlabi@gmail.com', '99905', 'OTA/21/0062', 'student', 1, NULL),
-(184, 'Rhamoni Rhodrah', 'OTA/21/0063', 'akinlabi@gmail.com', '61723', 'OTA/21/0063', 'student', 1, NULL),
-(185, 'Shittu Thana-Ah', 'OTA/21/0064', 'akinlabi@gmail.com', '21326', 'OTA/21/0064', 'student', 1, NULL),
-(186, 'Taiwo Inioluwa', 'OTA/21/0065', 'akinlabi@gmail.com', '49711', 'OTA/21/0065', 'student', 1, NULL),
-(187, 'Tijani Aishat', 'OTA/21/0066', 'akinlabi@gmail.com', '47856', 'OTA/21/0066', 'student', 1, NULL),
-(188, 'Abanikanda farhan', 'OTA/21/0067', 'akinlabi@gmail.com', '84635', 'OTA/21/0067', 'student', 1, NULL),
-(189, 'Abdulrasaq lubabah', 'OTA/21/0068', 'akinlabi@gmail.com', '74012', 'OTA/21/0068', 'student', 1, NULL),
-(190, 'Abiola aameelah', 'OTA/21/0069', 'akinlabi@gmail.com', '56117', 'OTA/21/0069', 'student', 1, NULL),
-(191, 'Abraham Samuel', 'OTA/21/0070', 'akinlabi@gmail.com', '68910', 'OTA/21/0070', 'student', 1, NULL),
-(192, 'Adedeji aisha', 'OTA/21/0071', 'akinlabi@gmail.com', '32996', 'OTA/21/0071', 'student', 1, NULL),
-(193, 'Adegbite mariam', 'OTA/21/0072', 'akinlabi@gmail.com', '22624', 'OTA/21/0072', 'student', 1, NULL),
-(194, 'Adewunmi Nathaniel', 'OTA/21/0073', 'akinlabi@gmail.com', '60859', 'OTA/21/0073', 'student', 1, NULL),
-(195, 'Adeyemo firdaus', 'OTA/21/0074', 'akinlabi@gmail.com', '71418', 'OTA/21/0074', 'student', 1, NULL),
-(196, 'Akasaro oluwajuwonlo', 'OTA/21/0075', 'akinlabi@gmail.com', '54195', 'OTA/21/0075', 'student', 1, NULL),
-(197, 'Alabi sultan', 'OTA/21/0076', 'akinlabi@gmail.com', '67014', 'OTA/21/0076', 'student', 1, NULL),
-(198, 'Amusa sa?ad', 'OTA/21/0077', 'akinlabi@gmail.com', '91350', 'OTA/21/0077', 'student', 1, NULL),
-(199, 'Asimi Mustapha', 'OTA/21/0078', 'akinlabi@gmail.com', '72411', 'OTA/21/0078', 'student', 1, NULL),
-(200, 'Badmus foazan', 'OTA/21/0079', 'akinlabi@gmail.com', '89318', 'OTA/21/0079', 'student', 1, NULL),
-(201, 'Hamza maryam', 'OTA/21/0080', 'akinlabi@gmail.com', '98852', 'OTA/21/0080', 'student', 1, NULL),
-(202, 'Hassan Mahmud', 'OTA/21/0081', 'akinlabi@gmail.com', '63322', 'OTA/21/0081', 'student', 1, NULL),
-(203, 'Ibrahim abdulRaheem', 'OTA/21/0082', 'akinlabi@gmail.com', '20033', 'OTA/21/0082', 'student', 1, NULL),
-(204, 'Idowu atiat', 'OTA/21/0083', 'akinlabi@gmail.com', '22142', 'OTA/21/0083', 'student', 1, NULL),
-(205, 'Muhammed jamiu', 'OTA/21/0084', 'akinlabi@gmail.com', '74627', 'OTA/21/0084', 'student', 1, NULL),
-(206, 'Okedeyi Michael', 'OTA/21/0085', 'akinlabi@gmail.com', '63503', 'OTA/21/0085', 'student', 1, NULL),
-(207, 'Olanrewaju muhammed', 'OTA/21/0086', 'akinlabi@gmail.com', '69129', 'OTA/21/0086', 'student', 1, NULL),
-(208, 'Osanyibi sofiyah', 'OTA/21/0087', 'akinlabi@gmail.com', '74248', 'OTA/21/0087', 'student', 1, NULL),
-(209, 'Oyalowo uthman', 'OTA/21/0088', 'akinlabi@gmail.com', '12446', 'OTA/21/0088', 'student', 1, NULL),
-(210, 'Shofunwa emmanuella', 'OTA/21/0089', 'akinlabi@gmail.com', '68061', 'OTA/21/0089', 'student', 1, NULL),
-(211, 'Sulaimon aliyah', 'OTA/21/0090', 'akinlabi@gmail.com', '70239', 'OTA/21/0090', 'student', 1, NULL),
-(212, 'Sulaimon hameedat', 'OTA/21/0091', 'akinlabi@gmail.com', '89621', 'OTA/21/0091', 'student', 1, NULL),
-(213, 'Adewole Nifemi', 'OTA/21/0092', 'akinlabi@gmail.com', '49071', 'OTA/21/0092', 'student', 1, NULL),
-(214, 'Aina Mubarak', 'OTA/21/0093', 'akinlabi@gmail.com', '10968', 'OTA/21/0093', 'student', 1, NULL),
-(215, 'Akintola Abdul-Rahman', 'OTA/21/0094', 'akinlabi@gmail.com', '74731', 'OTA/21/0094', 'student', 1, NULL),
-(216, 'Akinwunmi Zeenat', 'OTA/21/0095', 'akinlabi@gmail.com', '67476', 'OTA/21/0095', 'student', 1, NULL),
-(217, 'Aladeyelu Nifemi', 'OTA/21/0096', 'akinlabi@gmail.com', '21457', 'OTA/21/0096', 'student', 1, NULL),
-(218, 'Asani Abdulrasak', 'OTA/21/0097', 'akinlabi@gmail.com', '61885', 'OTA/21/0097', 'student', 1, NULL),
-(219, 'Badmus Fuad', 'OTA/21/0098', 'akinlabi@gmail.com', '93586', 'OTA/21/0098', 'student', 1, NULL),
-(220, 'Eguevon Clara', 'OTA/21/0099', 'akinlabi@gmail.com', '32619', 'OTA/21/0099', 'student', 1, NULL),
-(221, 'Fadillulahi Abdulrahman', 'OTA/21/0100', 'akinlabi@gmail.com', '76457', 'OTA/21/0100', 'student', 1, NULL),
-(222, 'Folorunsho Muheenah', 'OTA/21/0101', 'akinlabi@gmail.com', '95811', 'OTA/21/0101', 'student', 1, NULL),
-(223, 'Kolade Comfort', 'OTA/21/0102', 'akinlabi@gmail.com', '86301', 'OTA/21/0102', 'student', 1, NULL),
-(224, 'Komolafe Dominion', 'OTA/21/0103', 'akinlabi@gmail.com', '88846', 'OTA/21/0103', 'student', 1, NULL),
-(225, 'Lawal Haleem', 'OTA/21/0104', 'akinlabi@gmail.com', '49964', 'OTA/21/0104', 'student', 1, NULL),
-(226, 'Lawal Hussein', 'OTA/21/0105', 'akinlabi@gmail.com', '79217', 'OTA/21/0105', 'student', 1, NULL),
-(227, 'Ojo Emmanuel', 'OTA/21/0106', 'akinlabi@gmail.com', '19487', 'OTA/21/0106', 'student', 1, NULL),
-(228, 'Oke Feranmi', 'OTA/21/0107', 'akinlabi@gmail.com', '90741', 'OTA/21/0107', 'student', 1, NULL),
-(229, 'Olayiwola Toyeeb', 'OTA/21/0108', 'akinlabi@gmail.com', '79110', 'OTA/21/0108', 'student', 1, NULL),
-(230, 'Oyebade Ireoluwa', 'OTA/21/0109', 'akinlabi@gmail.com', '95187', 'OTA/21/0109', 'student', 1, NULL),
-(231, 'Sanusi Wafiah', 'OTA/21/0110', 'akinlabi@gmail.com', '63577', 'OTA/21/0110', 'student', 1, NULL),
-(232, 'Sheriff Sobiha', 'OTA/21/0111', 'akinlabi@gmail.com', '85012', 'OTA/21/0111', 'student', 1, NULL),
-(233, 'Tejidini Bushroh', 'OTA/21/0112', 'akinlabi@gmail.com', '72344', 'OTA/21/0112', 'student', 1, NULL),
-(234, 'Abdul Salam Aneesah', 'OTA/20/001', 'akinlabi@gmail.com', '82177', 'OTA/20/001', 'student', 1, NULL),
-(235, 'Adeniran Mayowa', 'OTA/20/002', 'akinlabi@gmail.com', '20399', 'OTA/20/002', 'student', 1, NULL),
-(236, 'Adewole Fridaus', 'OTA/20/003', 'akinlabi@gmail.com', '40292', 'OTA/20/003', 'student', 1, NULL),
-(237, 'Afolayan Prosper', 'OTA/20/004', 'akinlabi@gmail.com', '30283', 'OTA/20/004', 'student', 1, NULL),
-(238, 'Aina Sulaimah', 'OTA/20/005', 'akinlabi@gmail.com', '30034', 'OTA/20/005', 'student', 1, NULL),
-(239, 'Ajibade Mujeedat', 'OTA/20/006', 'akinlabi@gmail.com', '86897', 'OTA/20/006', 'student', 1, NULL),
-(240, 'Ajibike Fatimah', 'OTA/20/007', 'akinlabi@gmail.com', '67088', 'OTA/20/007', 'student', 1, NULL),
-(241, 'Akinleye Success', 'OTA/20/008', 'akinlabi@gmail.com', '98017', 'OTA/20/008', 'student', 1, NULL),
-(242, 'Akinpelu Feyisolaoluwa', 'OTA/20/009', 'akinlabi@gmail.com', '43552', 'OTA/20/009', 'student', 1, NULL),
-(243, 'Alabi Habeeb', 'OTA/20/010', 'akinlabi@gmail.com', '66644', 'OTA/20/010', 'student', 1, NULL),
-(244, 'Alabi Iremide', 'OTA/20/011', 'akinlabi@gmail.com', '94424', 'OTA/20/011', 'student', 1, NULL),
-(245, 'Alagbe Abdmalik', 'OTA/20/012', 'akinlabi@gmail.com', '33017', 'OTA/20/012', 'student', 1, NULL),
-(246, 'Animasahan Ameerat', 'OTA/20/013', 'akinlabi@gmail.com', '48606', 'OTA/20/013', 'student', 1, NULL),
-(247, 'Biriowo Raodat', 'OTA/20/014', 'akinlabi@gmail.com', '90628', 'OTA/20/014', 'student', 1, NULL),
-(248, 'Egberinde Darasimi', 'OTA/20/015', 'akinlabi@gmail.com', '59551', 'OTA/20/015', 'student', 1, NULL),
-(249, 'Egunfemi Deborah', 'OTA/20/016', 'akinlabi@gmail.com', '72151', 'OTA/20/016', 'student', 1, NULL),
-(250, 'Fasugba Rohyan ', 'OTA/20/017', 'akinlabi@gmail.com', '50242', 'OTA/20/017', 'student', 1, NULL),
-(251, 'Ganiyu Halimah', 'OTA/20/018', 'akinlabi@gmail.com', '40108', 'OTA/20/018', 'student', 1, NULL),
-(252, 'Hassan Robiu', 'OTA/20/019', 'akinlabi@gmail.com', '18348', 'OTA/20/019', 'student', 1, NULL),
-(253, 'Muse Abdulmalik', 'OTA/20/020', 'akinlabi@gmail.com', '22327', 'OTA/20/020', 'student', 1, NULL),
-(254, 'Mustapha Adebola', 'OTA/20/021', 'akinlabi@gmail.com', '33029', 'OTA/20/021', 'student', 1, NULL),
-(255, 'Mustapha Iman', 'OTA/20/022', 'akinlabi@gmail.com', '19345', 'OTA/20/022', 'student', 1, NULL),
-(256, 'Odedele Darasimi', 'OTA/20/023', 'akinlabi@gmail.com', '13348', 'OTA/20/023', 'student', 1, NULL),
-(257, 'Ogunronbi Evergreat', 'OTA/20/024', 'akinlabi@gmail.com', '52868', 'OTA/20/024', 'student', 1, NULL),
-(258, 'Ola Oreoluwa', 'OTA/20/025', 'akinlabi@gmail.com', '84969', 'OTA/20/025', 'student', 1, NULL),
-(259, 'Olanigan Abdulmalik', 'OTA/20/026', 'akinlabi@gmail.com', '22780', 'OTA/20/026', 'student', 1, NULL),
-(260, 'Olaogun Muiz  ', 'OTA/20/027', 'akinlabi@gmail.com', '31620', 'OTA/20/027', 'student', 1, NULL),
-(261, 'Ololade  Olamide', 'OTA/20/028', 'akinlabi@gmail.com', '54232', 'OTA/20/028', 'student', 1, NULL),
-(262, 'Olufuwape Emmanuel', 'OTA/20/029', 'akinlabi@gmail.com', '23255', 'OTA/20/029', 'student', 1, NULL),
-(263, 'Onifade Emmanuellah', 'OTA/20/030', 'akinlabi@gmail.com', '96049', 'OTA/20/030', 'student', 1, NULL),
-(264, 'Orisadare Khalidah', 'OTA/20/031', 'akinlabi@gmail.com', '29255', 'OTA/20/031', 'student', 1, NULL),
-(265, 'Osom Ukara', 'OTA/20/032', 'akinlabi@gmail.com', '13781', 'OTA/20/032', 'student', 1, NULL),
-(266, 'Oyafajo Abdullaih', 'OTA/20/033', 'akinlabi@gmail.com', '30608', 'OTA/20/033', 'student', 1, NULL),
-(267, 'Salako Soliat', 'OTA/20/034', 'akinlabi@gmail.com', '18389', 'OTA/20/034', 'student', 1, NULL),
-(268, 'Sangobiyi Tolani ', 'OTA/20/035', 'akinlabi@gmail.com', '83681', 'OTA/20/035', 'student', 1, NULL),
-(269, 'Shobogun Fadilullial', 'OTA/20/036', 'akinlabi@gmail.com', '32614', 'OTA/20/036', 'student', 1, NULL),
-(270, 'Temidayo Ayomide', 'OTA/20/037', 'akinlabi@gmail.com', '41023', 'OTA/20/037', 'student', 1, NULL),
-(271, 'Abdulazeez   Abduraheem', 'OTA/20/0038', 'akinlabi@gmail.com', '37335', 'OTA/20/0038', 'student', 1, NULL),
-(272, 'Abdulazeez   Zainab', 'OTA/20/0039', 'akinlabi@gmail.com', '99179', 'OTA/20/0039', 'student', 1, NULL),
-(273, 'Abdwaliy   Amanat', 'OTA/20/0040', 'akinlabi@gmail.com', '61614', 'OTA/20/0040', 'student', 1, NULL),
-(274, 'Adebari   Eniola', 'OTA/20/0041', 'akinlabi@gmail.com', '72911', 'OTA/20/0041', 'student', 1, NULL),
-(275, 'Adekoya    Fareedah', 'OTA/20/0042', 'akinlabi@gmail.com', '73058', 'OTA/20/0042', 'student', 1, NULL),
-(276, 'Adekoya   Fuad', 'OTA/20/0043', 'akinlabi@gmail.com', '41429', 'OTA/20/0043', 'student', 1, NULL),
-(277, 'Adewole   Peace', 'OTA/20/0044', 'akinlabi@gmail.com', '84272', 'OTA/20/0044', 'student', 1, NULL),
-(278, 'Afolabi    Fatimoh', 'OTA/20/0045', 'akinlabi@gmail.com', '93606', 'OTA/20/0045', 'student', 1, NULL),
-(279, 'Akindele   Itunoluwa', 'OTA/20/0046', 'akinlabi@gmail.com', '93843', 'OTA/20/0046', 'student', 1, NULL),
-(280, 'Akintoye   Olwatosin', 'OTA/20/0047', 'akinlabi@gmail.com', '62478', 'OTA/20/0047', 'student', 1, NULL),
-(281, 'Alabi    Toheebat', 'OTA/20/0048', 'akinlabi@gmail.com', '59241', 'OTA/20/0048', 'student', 1, NULL),
-(282, 'Alabi   Naheeb', 'OTA/20/0049', 'akinlabi@gmail.com', '72177', 'OTA/20/0049', 'student', 1, NULL),
-(283, 'Alegbeleye   Jeremiah', 'OTA/20/0050', 'akinlabi@gmail.com', '84334', 'OTA/20/0050', 'student', 1, NULL),
-(284, 'Ayanboade   Widaad', 'OTA/20/0051', 'akinlabi@gmail.com', '93361', 'OTA/20/0051', 'student', 1, NULL),
-(285, 'Babatunde   Oluwadara', 'OTA/20/0052', 'akinlabi@gmail.com', '95693', 'OTA/20/0052', 'student', 1, NULL),
-(286, 'Balogun   Firdaous', 'OTA/20/0053', 'akinlabi@gmail.com', '19340', 'OTA/20/0053', 'student', 1, NULL),
-(287, 'Beke   Ayomide', 'OTA/20/0054', 'akinlabi@gmail.com', '73566', 'OTA/20/0054', 'student', 1, NULL),
-(288, 'Eniola   Anat', 'OTA/20/0055', 'akinlabi@gmail.com', '35665', 'OTA/20/0055', 'student', 1, NULL),
-(289, 'Farojoye   Shinaayomi', 'OTA/20/0056', 'akinlabi@gmail.com', '14255', 'OTA/20/0056', 'student', 1, NULL),
-(290, 'Fashina   Sobur', 'OTA/20/0057', 'akinlabi@gmail.com', '55782', 'OTA/20/0057', 'student', 1, NULL),
-(291, 'Fawole   Aisha', 'OTA/20/0058', 'akinlabi@gmail.com', '26440', 'OTA/20/0058', 'student', 1, NULL),
-(292, 'Ileogbeni   Stephen  ', 'OTA/20/0059', 'akinlabi@gmail.com', '27116', 'OTA/20/0059', 'student', 1, NULL),
-(293, 'Kassim   Fawaz', 'OTA/20/0060', 'akinlabi@gmail.com', '36620', 'OTA/20/0060', 'student', 1, NULL),
-(294, 'Kehinde  Hassan', 'OTA/20/0061', 'akinlabi@gmail.com', '16847', 'OTA/20/0061', 'student', 1, NULL),
-(295, 'Kolade   Victoria', 'OTA/20/0062', 'akinlabi@gmail.com', '49399', 'OTA/20/0062', 'student', 1, NULL),
-(296, 'Mayeloloye   Aneeqah', 'OTA/20/0063', 'akinlabi@gmail.com', '51148', 'OTA/20/0063', 'student', 1, NULL),
-(297, 'Mayokun   Afope', 'OTA/20/0064', 'akinlabi@gmail.com', '74097', 'OTA/20/0064', 'student', 1, NULL),
-(298, 'Obasanya   Uthman', 'OTA/20/0065', 'akinlabi@gmail.com', '87301', 'OTA/20/0065', 'student', 1, NULL),
-(299, 'Odeniyi   Kolawole', 'OTA/20/0066', 'akinlabi@gmail.com', '66505', 'OTA/20/0066', 'student', 1, NULL),
-(300, 'Opebiyi   Success', 'OTA/20/0067', 'akinlabi@gmail.com', '82324', 'OTA/20/0067', 'student', 1, NULL),
-(301, 'Owodunni    Imaran', 'OTA/20/0068', 'akinlabi@gmail.com', '88458', 'OTA/20/0068', 'student', 1, NULL),
-(302, 'Raham    Samiat', 'OTA/20/0069', 'akinlabi@gmail.com', '50683', 'OTA/20/0069', 'student', 1, NULL),
-(303, 'Sabitu    Hazeezat', 'OTA/20/0070', 'akinlabi@gmail.com', '12597', 'OTA/20/0070', 'student', 1, NULL),
-(304, 'Oyebowale david', 'OTA/20/0071', 'akinlabi@gmail.com', '95097', 'OTA/20/0071', 'student', 1, NULL),
-(305, 'Salawu adeiza', 'OTA/20/0072', 'akinlabi@gmail.com', '46473', 'OTA/20/0072', 'student', 1, NULL),
-(306, 'Shoji feyitayomi', 'OTA/20/0073', 'akinlabi@gmail.com', '24611', 'OTA/20/0073', 'student', 1, NULL),
-(307, 'Soliu wasilat', 'OTA/20/0074', 'akinlabi@gmail.com', '75829', 'OTA/20/0074', 'student', 1, NULL),
-(308, 'Abass Maryam', 'OTA/19/001', 'akinlabi@gmail.com', '90609', 'OTA/19/001', 'student', 1, NULL),
-(309, 'Abdullah Abdulfatah', 'OTA/19/002', 'akinlabi@gmail.com', '33396', 'OTA/19/002', 'student', 1, NULL),
-(310, 'Abdulrauf Maryam', 'OTA/19/003', 'akinlabi@gmail.com', '15223', 'OTA/19/003', 'student', 1, NULL),
-(311, 'Abiodun Muhammed', 'OTA/19/004', 'akinlabi@gmail.com', '89277', 'OTA/19/004', 'student', 1, NULL),
-(312, 'Abiola Basit', 'OTA/19/005', 'akinlabi@gmail.com', '56531', 'OTA/19/005', 'student', 1, NULL),
-(313, 'Adebayo Azeezah', 'OTA/19/006', 'akinlabi@gmail.com', '95252', 'OTA/19/006', 'student', 1, NULL),
-(314, 'Adebisi Muslimah', 'OTA/19/007', 'akinlabi@gmail.com', '20707', 'OTA/19/007', 'student', 1, NULL),
-(315, 'Adeku Faizah', 'OTA/19/008', 'akinlabi@gmail.com', '96641', 'OTA/19/008', 'student', 1, NULL),
-(316, 'Adesina Faheezat', 'OTA/19/009', 'akinlabi@gmail.com', '27439', 'OTA/19/009', 'student', 1, NULL),
-(317, 'Adewole Abdulsamad', 'OTA/19/010', 'akinlabi@gmail.com', '24150', 'OTA/19/010', 'student', 1, NULL),
-(318, 'Ajuwon Oluwalayomi', 'OTA/19/011', 'akinlabi@gmail.com', '62461', 'OTA/19/011', 'student', 1, NULL),
-(319, 'Aremu Abdulhaleem', 'OTA/19/012', 'akinlabi@gmail.com', '25527', 'OTA/19/012', 'student', 1, NULL),
-(320, 'Aruna Abduljabar', 'OTA/19/013', 'akinlabi@gmail.com', '24958', 'OTA/19/013', 'student', 1, NULL),
-(321, 'Bakenne Oluwakemisola', 'OTA/19/014', 'akinlabi@gmail.com', '11807', 'OTA/19/014', 'student', 1, NULL),
-(322, 'Busari Habeeb', 'OTA/19/015', 'akinlabi@gmail.com', '69280', 'OTA/19/015', 'student', 1, NULL),
-(323, 'Dolapo Kamilah', 'OTA/19/016', 'akinlabi@gmail.com', '80143', 'OTA/19/016', 'student', 1, NULL),
-(324, 'Ibikunle Titobiloluwa', 'OTA/19/017', 'akinlabi@gmail.com', '69795', 'OTA/19/017', 'student', 1, NULL),
-(325, 'Kehinde Moriam', 'OTA/19/018', 'akinlabi@gmail.com', '78361', 'OTA/19/018', 'student', 1, NULL),
-(326, 'Kunle-Lawal Lateefah', 'OTA/19/019', 'akinlabi@gmail.com', '90179', 'OTA/19/019', 'student', 1, NULL),
-(327, 'Ogundele Tabitha', 'OTA/19/020', 'akinlabi@gmail.com', '12157', 'OTA/19/020', 'student', 1, NULL),
-(328, 'Ogunsetan Abdul Ganiyy', 'OTA/19/021', 'akinlabi@gmail.com', '25212', 'OTA/19/021', 'student', 1, NULL),
-(329, 'Okesade Oluwakemi', 'OTA/19/022', 'akinlabi@gmail.com', '53461', 'OTA/19/022', 'student', 1, NULL),
-(330, 'Olalekan Zainab', 'OTA/19/023', 'akinlabi@gmail.com', '26464', 'OTA/19/023', 'student', 1, NULL),
-(331, 'Olaniyan Aishat', 'OTA/19/024', 'akinlabi@gmail.com', '77328', 'OTA/19/024', 'student', 1, NULL),
-(332, 'Ololade Olaide', 'OTA/19/025', 'akinlabi@gmail.com', '48401', 'OTA/19/025', 'student', 1, NULL),
-(333, 'Olumuyiwa God?s Delight', 'OTA/19/026', 'akinlabi@gmail.com', '71213', 'OTA/19/026', 'student', 1, NULL),
-(334, 'Olusanya Temiloluwa', 'OTA/19/027', 'akinlabi@gmail.com', '16268', 'OTA/19/027', 'student', 1, NULL),
-(335, 'Onitiri Abdulqayyum', 'OTA/19/028', 'akinlabi@gmail.com', '28397', 'OTA/19/028', 'student', 1, NULL),
-(336, 'Orisadare Halimah', 'OTA/19/029', 'akinlabi@gmail.com', '86701', 'OTA/19/029', 'student', 1, NULL),
-(337, 'Oyelowo Adedolapo', 'OTA/19/030', 'akinlabi@gmail.com', '54822', 'OTA/19/030', 'student', 1, NULL),
-(338, 'Shasanmi Mercy', 'OTA/19/031', 'akinlabi@gmail.com', '25413', 'OTA/19/031', 'student', 1, NULL),
-(339, 'Sobogun Oluwakemi', 'OTA/19/032', 'akinlabi@gmail.com', '51796', 'OTA/19/032', 'student', 1, NULL),
-(340, 'Sulaimon Hussein', 'OTA/19/033', 'akinlabi@gmail.com', '56293', 'OTA/19/033', 'student', 1, NULL),
-(341, 'Toriola Joseph', 'OTA/19/034', 'akinlabi@gmail.com', '82795', 'OTA/19/034', 'student', 1, NULL),
-(342, 'Adamu Angel', 'OTA/19/0035', 'akinlabi@gmail.com', '11343', 'OTA/19/0035', 'student', 1, NULL),
-(343, 'Adedeji Abdul Muiz', 'OTA/19/0036', 'akinlabi@gmail.com', '77346', 'OTA/19/0036', 'student', 1, NULL),
-(344, 'Adegbenjo Tamilore', 'OTA/19/0037', 'akinlabi@gmail.com', '11573', 'OTA/19/0037', 'student', 1, NULL),
-(345, 'Adeleye Fathiah', 'OTA/19/0038', 'akinlabi@gmail.com', '12787', 'OTA/19/0038', 'student', 1, NULL),
-(346, 'Agbaje Habeeb', 'OTA/19/0039', 'akinlabi@gmail.com', '39702', 'OTA/19/0039', 'student', 1, NULL),
-(347, 'Aina Qamardeen', 'OTA/19/0040', 'akinlabi@gmail.com', '34529', 'OTA/19/0040', 'student', 1, NULL),
-(348, 'Ajayi Oreoluwa', 'OTA/19/0041', 'akinlabi@gmail.com', '20071', 'OTA/19/0041', 'student', 1, NULL),
-(349, 'Ajijola Fawziyah', 'OTA/19/0042', 'akinlabi@gmail.com', '39582', 'OTA/19/0042', 'student', 1, NULL),
-(350, 'Akinwale Ifeoluwa', 'OTA/19/0043', 'akinlabi@gmail.com', '41026', 'OTA/19/0043', 'student', 1, NULL),
-(351, 'Alao Ifeoluwa', 'OTA/19/0044', 'akinlabi@gmail.com', '75754', 'OTA/19/0044', 'student', 1, NULL),
-(352, 'Atoyebi Ibrahim', 'OTA/19/0045', 'akinlabi@gmail.com', '83282', 'OTA/19/0045', 'student', 1, NULL),
-(353, 'Awogu Chukwuemeka', 'OTA/19/0046', 'akinlabi@gmail.com', '91150', 'OTA/19/0046', 'student', 1, NULL),
-(354, 'Bamigboye Medinah', 'OTA/19/0047', 'akinlabi@gmail.com', '70766', 'OTA/19/0047', 'student', 1, NULL),
-(355, 'Chikodi Michael', 'OTA/19/0048', 'akinlabi@gmail.com', '14559', 'OTA/19/0048', 'student', 1, NULL),
-(356, 'Dada Fareed', 'OTA/19/0049', 'akinlabi@gmail.com', '22171', 'OTA/19/0049', 'student', 1, NULL),
-(357, 'Famuyiwa David', 'OTA/19/0050', 'akinlabi@gmail.com', '38815', 'OTA/19/0050', 'student', 1, NULL),
-(358, 'Ibrahim Faizat', 'OTA/19/0051', 'akinlabi@gmail.com', '63041', 'OTA/19/0051', 'student', 1, NULL),
-(359, 'Kilanko Olajumoke', 'OTA/19/0052', 'akinlabi@gmail.com', '73979', 'OTA/19/0052', 'student', 1, NULL),
-(360, 'Ogunbiyi Afeezah', 'OTA/19/0053', 'akinlabi@gmail.com', '77998', 'OTA/19/0053', 'student', 1, NULL),
-(361, 'Ogunsetan Abdul Ganiyy', 'OTA/19/0054', 'akinlabi@gmail.com', '84074', 'OTA/19/0054', 'student', 1, NULL),
-(362, 'Oladeinde Maryam', 'OTA/19/0055', 'akinlabi@gmail.com', '79552', 'OTA/19/0055', 'student', 1, NULL),
-(363, 'Olona Mutmaheena', 'OTA/19/0056', 'akinlabi@gmail.com', '31214', 'OTA/19/0056', 'student', 1, NULL),
-(364, 'Shorunke Khaijah', 'OTA/19/0057', 'akinlabi@gmail.com', '16175', 'OTA/19/0057', 'student', 1, NULL),
-(365, 'Abdulyekeen Ibrahim', 'OTA/19/0058', 'akinlabi@gmail.com', '43950', 'OTA/19/0058', 'student', 1, NULL),
-(366, 'Adeagbo Happiness', 'OTA/19/0059', 'akinlabi@gmail.com', '31921', 'OTA/19/0059', 'student', 1, NULL),
-(367, 'Ajayi Ireoluwa', 'OTA/19/0060', 'akinlabi@gmail.com', '78691', 'OTA/19/0060', 'student', 1, NULL),
-(368, 'Akinde Abdul Azeem', 'OTA/19/0061', 'akinlabi@gmail.com', '67968', 'OTA/19/0061', 'student', 1, NULL),
-(369, 'Akindele Oluwaferanmi', 'OTA/19/0062', 'akinlabi@gmail.com', '39948', 'OTA/19/0062', 'student', 1, NULL),
-(370, 'Apu Emmanuel', 'OTA/19/0063', 'akinlabi@gmail.com', '31292', 'OTA/19/0063', 'student', 1, NULL),
-(371, 'Badmos Yoyinsola', 'OTA/19/0064', 'akinlabi@gmail.com', '81582', 'OTA/19/0064', 'student', 1, NULL),
-(372, 'Bakare Abdulsalam', 'OTA/19/0065', 'akinlabi@gmail.com', '20701', 'OTA/19/0065', 'student', 1, NULL),
-(373, 'Bello Abdulmuqtadir', 'OTA/19/0066', 'akinlabi@gmail.com', '16794', 'OTA/19/0066', 'student', 1, NULL),
-(374, 'Edoro Doreen', 'OTA/19/0067', 'akinlabi@gmail.com', '54134', 'OTA/19/0067', 'student', 1, NULL),
-(375, 'Eguevon Christabel', 'OTA/19/0068', 'akinlabi@gmail.com', '53371', 'OTA/19/0068', 'student', 1, NULL),
-(376, 'Eleanya Chisom', 'OTA/19/0069', 'akinlabi@gmail.com', '59776', 'OTA/19/0069', 'student', 1, NULL),
-(377, 'Emuebie Tobiloba', 'OTA/19/0070', 'akinlabi@gmail.com', '30611', 'OTA/19/0070', 'student', 1, NULL),
-(378, 'Eniola Muh Awwal', 'OTA/19/0071', 'akinlabi@gmail.com', '62799', 'OTA/19/0071', 'student', 1, NULL),
-(379, 'Ezeji Jennifer', 'OTA/19/0072', 'akinlabi@gmail.com', '19663', 'OTA/19/0072', 'student', 1, NULL),
-(380, 'Fagbohun Mayokun', 'OTA/19/0073', 'akinlabi@gmail.com', '91168', 'OTA/19/0073', 'student', 1, NULL),
-(381, 'Garuba Abdulkhaleed', 'OTA/19/0074', 'akinlabi@gmail.com', '25819', 'OTA/19/0074', 'student', 1, NULL),
-(382, 'Hamza Ahmad', 'OTA/19/0075', 'akinlabi@gmail.com', '57666', 'OTA/19/0075', 'student', 1, NULL),
-(383, 'Ibraheem Aminat', 'OTA/19/0076', 'akinlabi@gmail.com', '93239', 'OTA/19/0076', 'student', 1, NULL),
-(384, 'Idowu Taiwo', 'OTA/19/0077', 'akinlabi@gmail.com', '74443', 'OTA/19/0077', 'student', 1, NULL),
-(385, 'Idowu Temidayo ', 'OTA/19/0078', 'akinlabi@gmail.com', '53724', 'OTA/19/0078', 'student', 1, NULL),
-(386, 'Kadiri Zeenat', 'OTA/19/0079', 'akinlabi@gmail.com', '19903', 'OTA/19/0079', 'student', 1, NULL),
-(387, 'Makinde Habeeb', 'OTA/19/0080', 'akinlabi@gmail.com', '92473', 'OTA/19/0080', 'student', 1, NULL),
-(388, 'Matanmi Adizat', 'OTA/19/0081', 'akinlabi@gmail.com', '96319', 'OTA/19/0081', 'student', 1, NULL),
-(389, 'Muse Abdulmuiz', 'OTA/19/0082', 'akinlabi@gmail.com', '45277', 'OTA/19/0082', 'student', 1, NULL),
-(390, 'Ogunrinde Muqit', 'OTA/19/0083', 'akinlabi@gmail.com', '18491', 'OTA/19/0083', 'student', 1, NULL),
-(391, 'Osanyinbi Hafsoh', 'OTA/19/0084', 'akinlabi@gmail.com', '91353', 'OTA/19/0084', 'student', 1, NULL),
-(392, 'Owolabi Fawaz', 'OTA/19/0085', 'akinlabi@gmail.com', '89321', 'OTA/19/0085', 'student', 1, NULL),
-(393, 'Salami David', 'OTA/19/0086', 'akinlabi@gmail.com', '79472', 'OTA/19/0086', 'student', 1, NULL),
-(394, 'Sodipo Olayinka', 'OTA/19/0087', 'akinlabi@gmail.com', '88371', 'OTA/19/0087', 'student', 1, NULL),
-(395, 'Tiamiyu Aliyah', 'OTA/19/0088', 'akinlabi@gmail.com', '23155', 'OTA/19/0088', 'student', 1, NULL),
-(396, 'Tijani Hamirat', 'OTA/19/0089', 'akinlabi@gmail.com', '26073', 'OTA/19/0089', 'student', 1, NULL),
-(397, 'Abdulhakeem Maryam', 'OTA/19/0090', 'akinlabi@gmail.com', '24612', 'OTA/19/0090', 'student', 1, NULL),
-(398, 'Abdulsalam Barakat', 'OTA/19/0091', 'akinlabi@gmail.com', '38712', 'OTA/19/0091', 'student', 1, NULL),
-(399, 'Adebiyi Muizdeen', 'OTA/19/0092', 'akinlabi@gmail.com', '48955', 'OTA/19/0092', 'student', 1, NULL),
-(400, 'Adedeji Abdulmuiz', 'OTA/19/0093', 'akinlabi@gmail.com', '63820', 'OTA/19/0093', 'student', 1, NULL),
-(401, 'Adepetu Ademidogo', 'OTA/19/0094', 'akinlabi@gmail.com', '67000', 'OTA/19/0094', 'student', 1, NULL),
-(402, 'Adewole Feranmi', 'OTA/19/0095', 'akinlabi@gmail.com', '21853', 'OTA/19/0095', 'student', 1, NULL),
-(403, 'Adewole Titobi', 'OTA/19/0096', 'akinlabi@gmail.com', '59910', 'OTA/19/0096', 'student', 1, NULL),
-(404, 'Ajenifuja Dominion', 'OTA/19/0097', 'akinlabi@gmail.com', '82749', 'OTA/19/0097', 'student', 1, NULL),
-(405, 'Atitebi Maimunat', 'OTA/19/0098', 'akinlabi@gmail.com', '42880', 'OTA/19/0098', 'student', 1, NULL),
-(406, 'Buhari Abdulmalik', 'OTA/19/0099', 'akinlabi@gmail.com', '84830', 'OTA/19/0099', 'student', 1, NULL),
-(407, 'Daniel Precious', 'OTA/19/0100', 'akinlabi@gmail.com', '41850', 'OTA/19/0100', 'student', 1, NULL),
-(408, 'Elijah Opeyemi', 'OTA/19/0101', 'akinlabi@gmail.com', '94271', 'OTA/19/0101', 'student', 1, NULL),
-(409, 'Esan Racheal', 'OTA/19/0102', 'akinlabi@gmail.com', '27371', 'OTA/19/0102', 'student', 1, NULL),
-(410, 'Kuranga Nifemi', 'OTA/19/0103', 'akinlabi@gmail.com', '51919', 'OTA/19/0103', 'student', 1, NULL),
-(411, 'Lamed Aishat', 'OTA/19/0104', 'akinlabi@gmail.com', '18397', 'OTA/19/0104', 'student', 1, NULL),
-(412, 'Odesanya Janet', 'OTA/19/0105', 'akinlabi@gmail.com', '36039', 'OTA/19/0105', 'student', 1, NULL),
-(413, 'Ogabi Azeezah', 'OTA/19/0106', 'akinlabi@gmail.com', '88296', 'OTA/19/0106', 'student', 1, NULL),
-(414, 'Ohanwusi Shalom', 'OTA/19/0107', 'akinlabi@gmail.com', '68413', 'OTA/19/0107', 'student', 1, NULL),
-(415, 'Olabisi Marzooq', 'OTA/19/0108', 'akinlabi@gmail.com', '77974', 'OTA/19/0108', 'student', 1, NULL),
-(416, 'Olodan Abdulmujeeb', 'OTA/19/0109', 'akinlabi@gmail.com', '33475', 'OTA/19/0109', 'student', 1, NULL),
-(417, 'Oluwasanmi Adeola', 'OTA/19/0110', 'akinlabi@gmail.com', '49811', 'OTA/19/0110', 'student', 1, NULL),
-(418, 'Oseni Muwafeeqoh', 'OTA/19/0111', 'akinlabi@gmail.com', '59276', 'OTA/19/0111', 'student', 1, NULL),
-(419, 'Saliu Abdulhamid', 'OTA/19/0112', 'akinlabi@gmail.com', '35007', 'OTA/19/0112', 'student', 1, NULL),
-(420, 'Sonibare Abdulmuneem', 'OTA/19/0113', 'akinlabi@gmail.com', '91659', 'OTA/19/0113', 'student', 1, NULL),
-(421, 'Sulaimon Abdulsalam', 'OTA/19/0114', 'akinlabi@gmail.com', '73895', 'OTA/19/0114', 'student', 1, NULL),
-(422, 'Yakubu Abdulbasit', 'OTA/19/0115', 'akinlabi@gmail.com', '80474', 'OTA/19/0115', 'student', 1, NULL),
-(423, 'Adedi Khaleelulah', 'OTA/19/0116', 'akinlabi@gmail.com', '87981', 'OTA/19/0116', 'student', 1, NULL),
-(424, 'Adigun Daniel', 'OTA/19/0117', 'akinlabi@gmail.com', '36045', 'OTA/19/0117', 'student', 1, NULL),
-(425, 'Ajao Haleem', 'OTA/19/0118', 'akinlabi@gmail.com', '34304', 'OTA/19/0118', 'student', 1, NULL),
-(426, 'Akintoye Khadijah', 'OTA/19/0119', 'akinlabi@gmail.com', '49932', 'OTA/19/0119', 'student', 1, NULL),
-(427, 'Alabi Bolaji', 'OTA/19/0120', 'akinlabi@gmail.com', '50283', 'OTA/19/0120', 'student', 1, NULL),
-(428, 'Alabi Ifeoluwa', 'OTA/19/0121', 'akinlabi@gmail.com', '28036', 'OTA/19/0121', 'student', 1, NULL),
-(429, 'Alabi Irebami', 'OTA/19/0122', 'akinlabi@gmail.com', '60485', 'OTA/19/0122', 'student', 1, NULL),
-(430, 'Alegbeleye Ibukun', 'OTA/19/0123', 'akinlabi@gmail.com', '94026', 'OTA/19/0123', 'student', 1, NULL),
-(431, 'Aremu Faruk', 'OTA/19/0124', 'akinlabi@gmail.com', '89712', 'OTA/19/0124', 'student', 1, NULL),
-(432, 'Badmus Hikmah', 'OTA/19/0125', 'akinlabi@gmail.com', '63500', 'OTA/19/0125', 'student', 1, NULL),
-(433, 'Durosinmi Sofiat ', 'OTA/19/0126', 'akinlabi@gmail.com', '82525', 'OTA/19/0126', 'student', 1, NULL),
-(434, 'Effiong David', 'OTA/19/0127', 'akinlabi@gmail.com', '38065', 'OTA/19/0127', 'student', 1, NULL),
-(435, 'Grillo Abdulrahmaan', 'OTA/19/0128', 'akinlabi@gmail.com', '43347', 'OTA/19/0128', 'student', 1, NULL),
-(436, 'Nasiru Nabilah', 'OTA/19/0129', 'akinlabi@gmail.com', '91515', 'OTA/19/0129', 'student', 1, NULL),
-(437, 'Ogedengbe Anjolaoluwa', 'OTA/19/0130', 'akinlabi@gmail.com', '84308', 'OTA/19/0130', 'student', 1, NULL),
-(438, 'Ogunade Elizerbeth', 'OTA/19/0131', 'akinlabi@gmail.com', '21467', 'OTA/19/0131', 'student', 1, NULL),
-(439, 'Ojo Temidayo', 'OTA/19/0132', 'akinlabi@gmail.com', '49105', 'OTA/19/0132', 'student', 1, NULL),
-(440, 'Oladejo Amidah', 'OTA/19/0133', 'akinlabi@gmail.com', '38057', 'OTA/19/0133', 'student', 1, NULL),
-(441, 'Salawu Ohinoyi', 'OTA/19/0134', 'akinlabi@gmail.com', '75918', 'OTA/19/0134', 'student', 1, NULL),
-(442, 'Abdulazeez Abdulrahman', 'OTA/18/001', 'akinlabi@gmail.com', '86969', 'OTA/18/001', 'student', 1, NULL),
-(443, 'Adejumo Yusuf', 'OTA/18/002', 'akinlabi@gmail.com', '94070', 'OTA/18/002', 'student', 1, NULL),
-(444, 'Akinpelu Diekololaoluwa', 'OTA/18/003', 'akinlabi@gmail.com', '22348', 'OTA/18/003', 'student', 1, NULL),
-(445, 'Akintunde Mubarak', 'OTA/18/004', 'akinlabi@gmail.com', '83266', 'OTA/18/004', 'student', 1, NULL),
-(446, 'Alabi Toheeb', 'OTA/18/005', 'akinlabi@gmail.com', '45486', 'OTA/18/005', 'student', 1, NULL),
-(447, 'Alli Abdulhamid', 'OTA/18/006', 'akinlabi@gmail.com', '80781', 'OTA/18/006', 'student', 1, NULL),
-(448, 'Aloba Abdulmalik', 'OTA/18/007', 'akinlabi@gmail.com', '48209', 'OTA/18/007', 'student', 1, NULL),
-(449, 'Amure Abdulroqeeb', 'OTA/18/008', 'akinlabi@gmail.com', '12979', 'OTA/18/008', 'student', 1, NULL),
-(450, 'Arimoro Adetola', 'OTA/18/009', 'akinlabi@gmail.com', '28088', 'OTA/18/009', 'student', 1, NULL),
-(451, 'Bemiro Iremide', 'OTA/18/010', 'akinlabi@gmail.com', '77391', 'OTA/18/010', 'student', 1, NULL),
-(452, 'Buhari Abdulsamad', 'OTA/18/011', 'akinlabi@gmail.com', '64417', 'OTA/18/011', 'student', 1, NULL),
-(453, 'Dosunmu Ayomide', 'OTA/18/012', 'akinlabi@gmail.com', '56427', 'OTA/18/012', 'student', 1, NULL),
-(454, 'Idris Mordiyah', 'OTA/18/013', 'akinlabi@gmail.com', '66827', 'OTA/18/013', 'student', 1, NULL),
-(455, 'Kareem Roqoyah', 'OTA/18/014', 'akinlabi@gmail.com', '55853', 'OTA/18/014', 'student', 1, NULL),
-(456, 'Lawal Muhammed', 'OTA/18/015', 'akinlabi@gmail.com', '97449', 'OTA/18/015', 'student', 1, NULL),
-(457, 'Mudashir Olawale', 'OTA/18/016', 'akinlabi@gmail.com', '86580', 'OTA/18/016', 'student', 1, NULL),
-(458, 'Ogungbayi Sultan', 'OTA/18/017', 'akinlabi@gmail.com', '62956', 'OTA/18/017', 'student', 1, NULL),
-(459, 'Ogunnowo  Moyinoluwa', 'OTA/18/018', 'akinlabi@gmail.com', '23236', 'OTA/18/018', 'student', 1, NULL),
-(460, 'Olabode Ayodeji ', 'OTA/18/019', 'akinlabi@gmail.com', '43685', 'OTA/18/019', 'student', 1, NULL),
-(461, 'Oladipo Abdulallam', 'OTA/18/020', 'akinlabi@gmail.com', '84739', 'OTA/18/020', 'student', 1, NULL),
-(462, 'Olanipekun Zainab ', 'OTA/18/021', 'akinlabi@gmail.com', '59376', 'OTA/18/021', 'student', 1, NULL),
-(463, 'Olanrewaju Sofiat', 'OTA/18/022', 'akinlabi@gmail.com', '66585', 'OTA/18/022', 'student', 1, NULL),
-(464, 'Osom Blessing', 'OTA/18/023', 'akinlabi@gmail.com', '32893', 'OTA/18/023', 'student', 1, NULL),
-(465, 'Osunanya Zainab', 'OTA/18/024', 'akinlabi@gmail.com', '96617', 'OTA/18/024', 'student', 1, NULL),
-(466, 'Oyebode Oluwanifemi', 'OTA/18/025', 'akinlabi@gmail.com', '80659', 'OTA/18/025', 'student', 1, NULL),
-(467, 'Rufia Al-Ameen', 'OTA/18/026', 'akinlabi@gmail.com', '19727', 'OTA/18/026', 'student', 1, NULL),
-(468, 'Sodiq Abdulhameed', 'OTA/18/027', 'akinlabi@gmail.com', '80270', 'OTA/18/027', 'student', 1, NULL),
-(469, 'Sulaimon Abdusalam', 'OTA/18/028', 'akinlabi@gmail.com', '55439', 'OTA/18/028', 'student', 1, NULL),
-(470, 'Abdulazeez Labeeb', 'OTA/18/0029', 'akinlabi@gmail.com', '36610', 'OTA/18/0029', 'student', 1, NULL),
-(471, 'Abdulsalam Roqeebah', 'OTA/18/0030', 'akinlabi@gmail.com', '85597', 'OTA/18/0030', 'student', 1, NULL),
-(472, 'Adams Anifat', 'OTA/18/0031', 'akinlabi@gmail.com', '82336', 'OTA/18/0031', 'student', 1, NULL),
-(473, 'Adebayo Aisha', 'OTA/18/0032', 'akinlabi@gmail.com', '11060', 'OTA/18/0032', 'student', 1, NULL),
-(474, 'Adebayo Bolanle', 'OTA/18/0033', 'akinlabi@gmail.com', '41148', 'OTA/18/0033', 'student', 1, NULL),
-(475, 'Adebayo Faoziyyah', 'OTA/18/0034', 'akinlabi@gmail.com', '24759', 'OTA/18/0034', 'student', 1, NULL),
-(476, 'Adelakun Faithia', 'OTA/18/0035', 'akinlabi@gmail.com', '56910', 'OTA/18/0035', 'student', 1, NULL),
-(477, 'Adewole Emmanuel', 'OTA/18/0036', 'akinlabi@gmail.com', '53262', 'OTA/18/0036', 'student', 1, NULL),
-(478, 'Adeyanju Zainab', 'OTA/18/0037', 'akinlabi@gmail.com', '36465', 'OTA/18/0037', 'student', 1, NULL),
-(479, 'Akintoye Maryam', 'OTA/18/0038', 'akinlabi@gmail.com', '92372', 'OTA/18/0038', 'student', 1, NULL),
-(480, 'Alimi Hameedah', 'OTA/18/0039', 'akinlabi@gmail.com', '73288', 'OTA/18/0039', 'student', 1, NULL),
-(481, 'Aronu Jane', 'OTA/18/0040', 'akinlabi@gmail.com', '38782', 'OTA/18/0040', 'student', 1, NULL),
-(482, 'Aronu Kevin', 'OTA/18/0041', 'akinlabi@gmail.com', '54790', 'OTA/18/0041', 'student', 1, NULL),
-(483, 'Bankole Richard', 'OTA/18/0042', 'akinlabi@gmail.com', '48772', 'OTA/18/0042', 'student', 1, NULL),
-(484, 'Deinde Sekinat', 'OTA/18/0043', 'akinlabi@gmail.com', '33146', 'OTA/18/0043', 'student', 1, NULL),
-(485, 'Ejalonibu Gloria', 'OTA/18/0044', 'akinlabi@gmail.com', '31996', 'OTA/18/0044', 'student', 1, NULL),
-(486, 'Fahina Kehinde', 'OTA/18/0045', 'akinlabi@gmail.com', '43942', 'OTA/18/0045', 'student', 1, NULL),
-(487, 'Gabdamosi Daniel', 'OTA/18/0046', 'akinlabi@gmail.com', '49944', 'OTA/18/0046', 'student', 1, NULL),
-(488, 'Ganiyu Aisha', 'OTA/18/0047', 'akinlabi@gmail.com', '53296', 'OTA/18/0047', 'student', 1, NULL),
-(489, 'Idowu Mofopefoluwa', 'OTA/18/0048', 'akinlabi@gmail.com', '78244', 'OTA/18/0048', 'student', 1, NULL),
-(490, 'Lemul-Tijeru  Aisha', 'OTA/18/0049', 'akinlabi@gmail.com', '58788', 'OTA/18/0049', 'student', 1, NULL),
-(491, 'Odukeye Emmanuella', 'OTA/18/0050', 'akinlabi@gmail.com', '57122', 'OTA/18/0050', 'student', 1, NULL),
-(492, 'Ofunsola Jedidah', 'OTA/18/0051', 'akinlabi@gmail.com', '27094', 'OTA/18/0051', 'student', 1, NULL),
-(493, 'Ogunronbi Evergreen', 'OTA/18/0052', 'akinlabi@gmail.com', '37297', 'OTA/18/0052', 'student', 1, NULL);
-INSERT INTO `users` (`id`, `f_name`, `username`, `email`, `password`, `unique_id`, `role`, `status`, `addmission_id`) VALUES
-(494, 'Olaboye Oladipupo', 'OTA/18/0053', 'akinlabi@gmail.com', '28567', 'OTA/18/0053', 'student', 1, NULL),
-(495, 'Olawoore Victor', 'OTA/18/0054', 'akinlabi@gmail.com', '52932', 'OTA/18/0054', 'student', 1, NULL),
-(496, 'Olayemi Nimotallahi', 'OTA/18/0055', 'akinlabi@gmail.com', '16046', 'OTA/18/0055', 'student', 1, NULL),
-(497, 'Omotosho Fikaye', 'OTA/18/0056', 'akinlabi@gmail.com', '29930', 'OTA/18/0056', 'student', 1, NULL),
-(498, 'Onwubiko Marie-Cecilia', 'OTA/18/0057', 'akinlabi@gmail.com', '77327', 'OTA/18/0057', 'student', 1, NULL),
-(499, 'Owolabi Barakat', 'OTA/18/0058', 'akinlabi@gmail.com', '11409', 'OTA/18/0058', 'student', 1, NULL),
-(500, 'Oyewole Boluwatife', 'OTA/18/0059', 'akinlabi@gmail.com', '22903', 'OTA/18/0059', 'student', 1, NULL),
-(501, 'Ozioko Nnenna', 'OTA/18/0060', 'akinlabi@gmail.com', '85125', 'OTA/18/0060', 'student', 1, NULL),
-(502, 'Soetan Adeolu', 'OTA/18/0061', 'akinlabi@gmail.com', '20425', 'OTA/18/0061', 'student', 1, NULL),
-(503, 'Taiwo Ibukunoluwa', 'OTA/18/0062', 'akinlabi@gmail.com', '11794', 'OTA/18/0062', 'student', 1, NULL),
-(504, 'Taiwo Zainab', 'OTA/18/0063', 'akinlabi@gmail.com', '56485', 'OTA/18/0063', 'student', 1, NULL),
-(505, 'Tejidini Rodiyat', 'OTA/18/0064', 'akinlabi@gmail.com', '75712', 'OTA/18/0064', 'student', 1, NULL),
-(506, 'Tijani Alfarouq', 'OTA/18/0065', 'akinlabi@gmail.com', '83333', 'OTA/18/0065', 'student', 1, NULL),
-(507, 'Toriola Bose', 'OTA/18/0066', 'akinlabi@gmail.com', '59385', 'OTA/18/0066', 'student', 1, NULL),
-(508, 'Abdulsalam Ahmed', 'OTA/18/0067', 'akinlabi@gmail.com', '65915', 'OTA/18/0067', 'student', 1, NULL),
-(509, 'Adebisi Adepeju', 'OTA/18/0068', 'akinlabi@gmail.com', '80385', 'OTA/18/0068', 'student', 1, NULL),
-(510, 'Adedayo Samuel', 'OTA/18/0069', 'akinlabi@gmail.com', '60201', 'OTA/18/0069', 'student', 1, NULL),
-(511, 'Adelu Maryam', 'OTA/18/0070', 'akinlabi@gmail.com', '88754', 'OTA/18/0070', 'student', 1, NULL),
-(512, 'Adeniyi Uthman', 'OTA/18/0071', 'akinlabi@gmail.com', '38756', 'OTA/18/0071', 'student', 1, NULL),
-(513, 'Adenran Nakeebat', 'OTA/18/0072', 'akinlabi@gmail.com', '27381', 'OTA/18/0072', 'student', 1, NULL),
-(514, 'Adeyemo Faisah', 'OTA/18/0073', 'akinlabi@gmail.com', '94927', 'OTA/18/0073', 'student', 1, NULL),
-(515, 'Ajibade Kanyinsola', 'OTA/18/0074', 'akinlabi@gmail.com', '10047', 'OTA/18/0074', 'student', 1, NULL),
-(516, 'Ajose Quadric', 'OTA/18/0075', 'akinlabi@gmail.com', '96770', 'OTA/18/0075', 'student', 1, NULL),
-(517, 'Akindele Fadil', 'OTA/18/0076', 'akinlabi@gmail.com', '89678', 'OTA/18/0076', 'student', 1, NULL),
-(518, 'Akinoso Praise', 'OTA/18/0077', 'akinlabi@gmail.com', '92811', 'OTA/18/0077', 'student', 1, NULL),
-(519, 'Akinyokun Tomiwa', 'OTA/18/0078', 'akinlabi@gmail.com', '81760', 'OTA/18/0078', 'student', 1, NULL),
-(520, 'Babatunde Enoch', 'OTA/18/0079', 'akinlabi@gmail.com', '76138', 'OTA/18/0079', 'student', 1, NULL),
-(521, 'Bankole Sodiqat', 'OTA/18/0080', 'akinlabi@gmail.com', '23906', 'OTA/18/0080', 'student', 1, NULL),
-(522, 'Bello Aisha', 'OTA/18/0081', 'akinlabi@gmail.com', '85729', 'OTA/18/0081', 'student', 1, NULL),
-(523, 'Bello Ayomide', 'OTA/18/0082', 'akinlabi@gmail.com', '94123', 'OTA/18/0082', 'student', 1, NULL),
-(524, 'Egberinde Tofunmi', 'OTA/18/0083', 'akinlabi@gmail.com', '45101', 'OTA/18/0083', 'student', 1, NULL),
-(525, 'Emmanuel Okonkwo', 'OTA/18/0084', 'akinlabi@gmail.com', '55276', 'OTA/18/0084', 'student', 1, NULL),
-(526, 'Fasugba Ridwan', 'OTA/18/0085', 'akinlabi@gmail.com', '96108', 'OTA/18/0085', 'student', 1, NULL),
-(527, 'Idowu Fisayo', 'OTA/18/0086', 'akinlabi@gmail.com', '22668', 'OTA/18/0086', 'student', 1, NULL),
-(528, 'Ifebanjo Emmanuel', 'OTA/18/0087', 'akinlabi@gmail.com', '31761', 'OTA/18/0087', 'student', 1, NULL),
-(529, 'Ogunbiyi Abdulsobur', 'OTA/18/0088', 'akinlabi@gmail.com', '20591', 'OTA/18/0088', 'student', 1, NULL),
-(530, 'Ogundipe Sulton ', 'OTA/18/0089', 'akinlabi@gmail.com', '16608', 'OTA/18/0089', 'student', 1, NULL),
-(531, 'Ogungabyi Basher', 'OTA/18/0090', 'akinlabi@gmail.com', '15199', 'OTA/18/0090', 'student', 1, NULL),
-(532, 'Ogunsola Roqeebat', 'OTA/18/0091', 'akinlabi@gmail.com', '77287', 'OTA/18/0091', 'student', 1, NULL),
-(533, 'Oladehinde Zaynab', 'OTA/18/0092', 'akinlabi@gmail.com', '53997', 'OTA/18/0092', 'student', 1, NULL),
-(534, 'Oladosu Fawahz', 'OTA/18/0093', 'akinlabi@gmail.com', '99549', 'OTA/18/0093', 'student', 1, NULL),
-(535, 'Olakunle Damilare', 'OTA/18/0094', 'akinlabi@gmail.com', '56425', 'OTA/18/0094', 'student', 1, NULL),
-(536, 'Olanrewaju Emmanuel', 'OTA/18/0095', 'akinlabi@gmail.com', '57242', 'OTA/18/0095', 'student', 1, NULL),
-(537, 'Olatunde Abdulgafar', 'OTA/18/0096', 'akinlabi@gmail.com', '58867', 'OTA/18/0096', 'student', 1, NULL),
-(538, 'Owodunni Mahmud', 'OTA/18/0097', 'akinlabi@gmail.com', '74087', 'OTA/18/0097', 'student', 1, NULL),
-(539, 'Owolabi Firdaos', 'OTA/18/0098', 'akinlabi@gmail.com', '52768', 'OTA/18/0098', 'student', 1, NULL),
-(540, 'Oyekola Khalid', 'OTA/18/0099', 'akinlabi@gmail.com', '39708', 'OTA/18/0099', 'student', 1, NULL),
-(541, 'Saka Fareedah', 'OTA/18/0100', 'akinlabi@gmail.com', '37586', 'OTA/18/0100', 'student', 1, NULL),
-(542, 'Salau Ali', 'OTA/18/0101', 'akinlabi@gmail.com', '39086', 'OTA/18/0101', 'student', 1, NULL),
-(543, 'Sangobiyi Callum', 'OTA/18/0102', 'akinlabi@gmail.com', '87709', 'OTA/18/0102', 'student', 1, NULL),
-(544, 'Toriola Sunday', 'OTA/18/0103', 'akinlabi@gmail.com', '22251', 'OTA/18/0103', 'student', 1, NULL),
-(545, 'Yahya Khalid', 'OTA/18/0104', 'akinlabi@gmail.com', '21946', 'OTA/18/0104', 'student', 1, NULL),
-(546, 'Yeeku Fareedah', 'OTA/18/0105', 'akinlabi@gmail.com', '44651', 'OTA/18/0105', 'student', 1, NULL),
-(547, 'Abdulsalam Ahmed', 'OTA/18/0067', 'akinlabi@gmail.com', '49403', 'OTA/18/0067', 'student', 1, NULL),
-(548, 'Adebisi Adepeju', 'OTA/18/0068', 'akinlabi@gmail.com', '61760', 'OTA/18/0068', 'student', 1, NULL),
-(549, 'Adedayo Samuel', 'OTA/18/0069', 'akinlabi@gmail.com', '48656', 'OTA/18/0069', 'student', 1, NULL),
-(550, 'Adelu Maryam', 'OTA/18/0070', 'akinlabi@gmail.com', '92556', 'OTA/18/0070', 'student', 1, NULL),
-(551, 'Adeniyi Uthman', 'OTA/18/0071', 'akinlabi@gmail.com', '43042', 'OTA/18/0071', 'student', 1, NULL),
-(552, 'Adenran Nakeebat', 'OTA/18/0072', 'akinlabi@gmail.com', '13226', 'OTA/18/0072', 'student', 1, NULL),
-(553, 'Adeyemo Faisah', 'OTA/18/0073', 'akinlabi@gmail.com', '55090', 'OTA/18/0073', 'student', 1, NULL),
-(554, 'Ajibade Kanyinsola', 'OTA/18/0074', 'akinlabi@gmail.com', '26860', 'OTA/18/0074', 'student', 1, NULL),
-(555, 'Ajose Quadric', 'OTA/18/0075', 'akinlabi@gmail.com', '69219', 'OTA/18/0075', 'student', 1, NULL),
-(556, 'Akindele Fadil', 'OTA/18/0076', 'akinlabi@gmail.com', '37750', 'OTA/18/0076', 'student', 1, NULL),
-(557, 'Akinoso Praise', 'OTA/18/0077', 'akinlabi@gmail.com', '24063', 'OTA/18/0077', 'student', 1, NULL),
-(558, 'Akinyokun Tomiwa', 'OTA/18/0078', 'akinlabi@gmail.com', '60263', 'OTA/18/0078', 'student', 1, NULL),
-(559, 'Babatunde Enoch', 'OTA/18/0079', 'akinlabi@gmail.com', '15453', 'OTA/18/0079', 'student', 1, NULL),
-(560, 'Bankole Sodiqat', 'OTA/18/0080', 'akinlabi@gmail.com', '76678', 'OTA/18/0080', 'student', 1, NULL),
-(561, 'Bello Aisha', 'OTA/18/0081', 'akinlabi@gmail.com', '49193', 'OTA/18/0081', 'student', 1, NULL),
-(562, 'Bello Ayomide', 'OTA/18/0082', 'akinlabi@gmail.com', '44767', 'OTA/18/0082', 'student', 1, NULL),
-(563, 'Egberinde Tofunmi', 'OTA/18/0083', 'akinlabi@gmail.com', '49496', 'OTA/18/0083', 'student', 1, NULL),
-(564, 'Emmanuel Okonkwo', 'OTA/18/0084', 'akinlabi@gmail.com', '34319', 'OTA/18/0084', 'student', 1, NULL),
-(565, 'Fasugba Ridwan', 'OTA/18/0085', 'akinlabi@gmail.com', '86810', 'OTA/18/0085', 'student', 1, NULL),
-(566, 'Idowu Fisayo', 'OTA/18/0086', 'akinlabi@gmail.com', '45583', 'OTA/18/0086', 'student', 1, NULL),
-(567, 'Ifebanjo Emmanuel', 'OTA/18/0087', 'akinlabi@gmail.com', '21187', 'OTA/18/0087', 'student', 1, NULL),
-(568, 'Ogunbiyi Abdulsobur', 'OTA/18/0088', 'akinlabi@gmail.com', '52380', 'OTA/18/0088', 'student', 1, NULL),
-(569, 'Ogundipe Sulton ', 'OTA/18/0089', 'akinlabi@gmail.com', '10142', 'OTA/18/0089', 'student', 1, NULL),
-(570, 'Ogungabyi Basher', 'OTA/18/0090', 'akinlabi@gmail.com', '62249', 'OTA/18/0090', 'student', 1, NULL),
-(571, 'Ogunsola Roqeebat', 'OTA/18/0091', 'akinlabi@gmail.com', '76524', 'OTA/18/0091', 'student', 1, NULL),
-(572, 'Oladehinde Zaynab', 'OTA/18/0092', 'akinlabi@gmail.com', '77759', 'OTA/18/0092', 'student', 1, NULL),
-(573, 'Oladosu Fawahz', 'OTA/18/0093', 'akinlabi@gmail.com', '40042', 'OTA/18/0093', 'student', 1, NULL),
-(574, 'Olakunle Damilare', 'OTA/18/0094', 'akinlabi@gmail.com', '26569', 'OTA/18/0094', 'student', 1, NULL),
-(575, 'Olanrewaju Emmanuel', 'OTA/18/0095', 'akinlabi@gmail.com', '99209', 'OTA/18/0095', 'student', 1, NULL),
-(576, 'Olatunde Abdulgafar', 'OTA/18/0096', 'akinlabi@gmail.com', '59085', 'OTA/18/0096', 'student', 1, NULL),
-(577, 'Owodunni Mahmud', 'OTA/18/0097', 'akinlabi@gmail.com', '39867', 'OTA/18/0097', 'student', 1, NULL),
-(578, 'Owolabi Firdaos', 'OTA/18/0098', 'akinlabi@gmail.com', '91488', 'OTA/18/0098', 'student', 1, NULL),
-(579, 'Oyekola Khalid', 'OTA/18/0099', 'akinlabi@gmail.com', '11380', 'OTA/18/0099', 'student', 1, NULL),
-(580, 'Saka Fareedah', 'OTA/18/0100', 'akinlabi@gmail.com', '81212', 'OTA/18/0100', 'student', 1, NULL),
-(581, 'Salau Ali', 'OTA/18/0101', 'akinlabi@gmail.com', '84286', 'OTA/18/0101', 'student', 1, NULL),
-(582, 'Sangobiyi Callum', 'OTA/18/0102', 'akinlabi@gmail.com', '93196', 'OTA/18/0102', 'student', 1, NULL),
-(583, 'Toriola Sunday', 'OTA/18/0103', 'akinlabi@gmail.com', '26746', 'OTA/18/0103', 'student', 1, NULL),
-(584, 'Yahya Khalid', 'OTA/18/0104', 'akinlabi@gmail.com', '51492', 'OTA/18/0104', 'student', 1, NULL),
-(585, 'Yeeku Fareedah', 'OTA/18/0105', 'akinlabi@gmail.com', '56436', 'OTA/18/0105', 'student', 1, NULL),
-(586, 'Abdulhakeem Yusuf ', 'OTA/18/0106', 'akinlabi@gmail.com', '11275', 'OTA/18/0106', 'student', 1, NULL),
-(587, 'Abdulkareem Ajarat', 'OTA/18/0107', 'akinlabi@gmail.com', '27737', 'OTA/18/0107', 'student', 1, NULL),
-(588, 'Adebayo Aishat', 'OTA/18/0108', 'akinlabi@gmail.com', '22421', 'OTA/18/0108', 'student', 1, NULL),
-(589, 'Adebayo Gbolahan', 'OTA/18/0109', 'akinlabi@gmail.com', '78924', 'OTA/18/0109', 'student', 1, NULL),
-(590, 'Aiyedun David', 'OTA/18/0110', 'akinlabi@gmail.com', '17303', 'OTA/18/0110', 'student', 1, NULL),
-(591, 'Ajibola Samiat', 'OTA/18/0111', 'akinlabi@gmail.com', '28312', 'OTA/18/0111', 'student', 1, NULL),
-(592, 'Ajibola Yesiroh', 'OTA/18/0112', 'akinlabi@gmail.com', '21714', 'OTA/18/0112', 'student', 1, NULL),
-(593, 'Ajuwo Yusroh', 'OTA/18/0113', 'akinlabi@gmail.com', '28813', 'OTA/18/0113', 'student', 1, NULL),
-(594, 'Alao Inioluwa', 'OTA/18/0114', 'akinlabi@gmail.com', '97505', 'OTA/18/0114', 'student', 1, NULL),
-(595, 'Alibi Opemipo', 'OTA/18/0115', 'akinlabi@gmail.com', '48854', 'OTA/18/0115', 'student', 1, NULL),
-(596, 'Arogundade Sekinah', 'OTA/18/0116', 'akinlabi@gmail.com', '76257', 'OTA/18/0116', 'student', 1, NULL),
-(597, 'Dada Abdulquadri', 'OTA/18/0117', 'akinlabi@gmail.com', '35209', 'OTA/18/0117', 'student', 1, NULL),
-(598, 'Fashina Taiwo ', 'OTA/18/0118', 'akinlabi@gmail.com', '31502', 'OTA/18/0118', 'student', 1, NULL),
-(599, 'Funmilayo Omololuwa', 'OTA/18/0119', 'akinlabi@gmail.com', '69674', 'OTA/18/0119', 'student', 1, NULL),
-(600, 'Ibrahim Khaleedah', 'OTA/18/0120', 'akinlabi@gmail.com', '61472', 'OTA/18/0120', 'student', 1, NULL),
-(601, 'Idowu Kehinde', 'OTA/18/0121', 'akinlabi@gmail.com', '92284', 'OTA/18/0121', 'student', 1, NULL),
-(602, 'Ifeayinchukwu Micheal', 'OTA/18/0122', 'akinlabi@gmail.com', '41063', 'OTA/18/0122', 'student', 1, NULL),
-(603, 'Issac Success', 'OTA/18/0123', 'akinlabi@gmail.com', '95837', 'OTA/18/0123', 'student', 1, NULL),
-(604, 'John Peace', 'OTA/18/0124', 'akinlabi@gmail.com', '72340', 'OTA/18/0124', 'student', 1, NULL),
-(605, 'Lawal Aminat', 'OTA/18/0125', 'akinlabi@gmail.com', '44926', 'OTA/18/0125', 'student', 1, NULL),
-(606, 'Mayokun Fiyin', 'OTA/18/0126', 'akinlabi@gmail.com', '19041', 'OTA/18/0126', 'student', 1, NULL),
-(607, 'Ogunbona Habeebah', 'OTA/18/0127', 'akinlabi@gmail.com', '67729', 'OTA/18/0127', 'student', 1, NULL),
-(608, 'Ogunrinde Abdul Matin', 'OTA/18/0128', 'akinlabi@gmail.com', '27222', 'OTA/18/0128', 'student', 1, NULL),
-(609, 'Oladapo Kofoworola', 'OTA/18/0129', 'akinlabi@gmail.com', '19392', 'OTA/18/0129', 'student', 1, NULL),
-(610, 'Olaiya Qoriba', 'OTA/18/0130', 'akinlabi@gmail.com', '21488', 'OTA/18/0130', 'student', 1, NULL),
-(611, 'Olawore Victoria', 'OTA/18/0131', 'akinlabi@gmail.com', '79277', 'OTA/18/0131', 'student', 1, NULL),
-(612, 'Olumide Oyinkansola', 'OTA/18/0132', 'akinlabi@gmail.com', '79907', 'OTA/18/0132', 'student', 1, NULL),
-(613, 'Ominiyi  Rejoice', 'OTA/18/0133', 'akinlabi@gmail.com', '81376', 'OTA/18/0133', 'student', 1, NULL),
-(614, 'Onyedum Christabel', 'OTA/18/0134', 'akinlabi@gmail.com', '59320', 'OTA/18/0134', 'student', 1, NULL),
-(615, 'Orisadare Mohammad', 'OTA/18/0135', 'akinlabi@gmail.com', '33270', 'OTA/18/0135', 'student', 1, NULL),
-(616, 'Oyebowale Tofunmi', 'OTA/18/0136', 'akinlabi@gmail.com', '18669', 'OTA/18/0136', 'student', 1, NULL),
-(617, 'Rasheed Abdullateef', 'OTA/18/0137', 'akinlabi@gmail.com', '19939', 'OTA/18/0137', 'student', 1, NULL),
-(618, 'Sanni Haleemah', 'OTA/18/0138', 'akinlabi@gmail.com', '58502', 'OTA/18/0138', 'student', 1, NULL),
-(619, 'Sijuade Tobiloba', 'OTA/18/0139', 'akinlabi@gmail.com', '45943', 'OTA/18/0139', 'student', 1, NULL),
-(620, 'Tewogbola Aisha', 'OTA/18/0140', 'akinlabi@gmail.com', '22499', 'OTA/18/0140', 'student', 1, NULL),
-(621, 'Uthman Saadudeen', 'OTA/18/0141', 'akinlabi@gmail.com', '38012', 'OTA/18/0141', 'student', 1, NULL),
-(622, 'Yedenu Abigeal', 'OTA/18/0142', 'akinlabi@gmail.com', '38938', 'OTA/18/0142', 'student', 1, NULL),
-(623, 'Yusuf Zainab', 'OTA/18/0143', 'akinlabi@gmail.com', '99719', 'OTA/18/0143', 'student', 1, NULL),
-(624, 'Abdulrauf Zainab', 'OTA/17/001', 'akinlabi@gmail.com', '49270', 'OTA/17/001', 'student', 1, NULL),
-(625, 'Abiodun Idris', 'OTA/17/002', 'akinlabi@gmail.com', '86448', 'OTA/17/002', 'student', 1, NULL),
-(626, 'Adegbola Faaiz', 'OTA/17/003', 'akinlabi@gmail.com', '48372', 'OTA/17/003', 'student', 1, NULL),
-(627, 'Adeniji Seyifunmi', 'OTA/17/004', 'akinlabi@gmail.com', '64267', 'OTA/17/004', 'student', 1, NULL),
-(628, 'Adeniran Fadhilah', 'OTA/17/005', 'akinlabi@gmail.com', '91670', 'OTA/17/005', 'student', 1, NULL),
-(629, 'Adewole Mubarak', 'OTA/17/006', 'akinlabi@gmail.com', '72754', 'OTA/17/006', 'student', 1, NULL),
-(630, 'Adeyemo Abdullah', 'OTA/17/007', 'akinlabi@gmail.com', '75171', 'OTA/17/007', 'student', 1, NULL),
-(631, 'Ajibola Abdulmalik', 'OTA/17/008', 'akinlabi@gmail.com', '98087', 'OTA/17/008', 'student', 1, NULL),
-(632, 'Ajose Hussein', 'OTA/17/009', 'akinlabi@gmail.com', '81199', 'OTA/17/009', 'student', 1, NULL),
-(633, 'Akinwale Courage', 'OTA/17/010', 'akinlabi@gmail.com', '52793', 'OTA/17/010', 'student', 1, NULL),
-(634, 'Akinyefa Mercy', 'OTA/17/011', 'akinlabi@gmail.com', '51667', 'OTA/17/011', 'student', 1, NULL),
-(635, 'Al-Ameen Maryam', 'OTA/17/012', 'akinlabi@gmail.com', '93304', 'OTA/17/012', 'student', 1, NULL),
-(636, 'Aloba Abdulrahman', 'OTA/17/013', 'akinlabi@gmail.com', '73894', 'OTA/17/013', 'student', 1, NULL),
-(637, 'Aregbesola Kehinde', 'OTA/17/014', 'akinlabi@gmail.com', '64326', 'OTA/17/014', 'student', 1, NULL),
-(638, 'Ariyo Monsurah', 'OTA/17/015', 'akinlabi@gmail.com', '35802', 'OTA/17/015', 'student', 1, NULL),
-(639, 'Awode Rahanah', 'OTA/17/016', 'akinlabi@gmail.com', '87924', 'OTA/17/016', 'student', 1, NULL),
-(640, 'Awogu Ogechucwu', 'OTA/17/017', 'akinlabi@gmail.com', '35726', 'OTA/17/017', 'student', 1, NULL),
-(641, 'Babasanya Abdulsalam', 'OTA/17/018', 'akinlabi@gmail.com', '13588', 'OTA/17/018', 'student', 1, NULL),
-(642, 'Babatunde Halimah', 'OTA/17/019', 'akinlabi@gmail.com', '19244', 'OTA/17/019', 'student', 1, NULL),
-(643, 'Bankole Busolami', 'OTA/17/020', 'akinlabi@gmail.com', '90617', 'OTA/17/020', 'student', 1, NULL),
-(644, 'Barika-Bodunrin Yusuf', 'OTA/17/021', 'akinlabi@gmail.com', '86718', 'OTA/17/021', 'student', 1, NULL),
-(645, 'Buraimoh Abdulsamad', 'OTA/17/022', 'akinlabi@gmail.com', '59365', 'OTA/17/022', 'student', 1, NULL),
-(646, 'Chidebelu Chigozirim', 'OTA/17/023', 'akinlabi@gmail.com', '81715', 'OTA/17/023', 'student', 1, NULL),
-(647, 'Effiong Mercy', 'OTA/17/024', 'akinlabi@gmail.com', '81908', 'OTA/17/024', 'student', 1, NULL),
-(648, 'Fatoke Sunmisola ', 'OTA/17/025', 'akinlabi@gmail.com', '55774', 'OTA/17/025', 'student', 1, NULL),
-(649, 'Fawole Aliyah', 'OTA/17/026', 'akinlabi@gmail.com', '27972', 'OTA/17/026', 'student', 1, NULL),
-(650, 'Garuba Abdulkareem', 'OTA/17/027', 'akinlabi@gmail.com', '83222', 'OTA/17/027', 'student', 1, NULL),
-(651, 'Hassan Mahmuda', 'OTA/17/028', 'akinlabi@gmail.com', '56379', 'OTA/17/028', 'student', 1, NULL),
-(652, 'Hamad-Qazeem Hameedah', 'OTA/17/029', 'akinlabi@gmail.com', '28376', 'OTA/17/029', 'student', 1, NULL),
-(653, 'Jimoh Aliyah', 'OTA/17/030', 'akinlabi@gmail.com', '42343', 'OTA/17/030', 'student', 1, NULL),
-(654, 'Jokanola Habeeb', 'OTA/17/031', 'akinlabi@gmail.com', '23504', 'OTA/17/031', 'student', 1, NULL),
-(655, 'Kayode Toluwani', 'OTA/17/032', 'akinlabi@gmail.com', '20244', 'OTA/17/032', 'student', 1, NULL),
-(656, 'Lateef Fawaz', 'OTA/17/033', 'akinlabi@gmail.com', '41457', 'OTA/17/033', 'student', 1, NULL),
-(657, 'Mustapha Adeoluwa', 'OTA/17/034', 'akinlabi@gmail.com', '28621', 'OTA/17/034', 'student', 1, NULL),
-(658, 'Nwajiaku Sharon', 'OTA/17/035', 'akinlabi@gmail.com', '44049', 'OTA/17/035', 'student', 1, NULL),
-(659, 'Odejide Rachael', 'OTA/17/036', 'akinlabi@gmail.com', '44123', 'OTA/17/036', 'student', 1, NULL),
-(660, 'Okesade Rachael', 'OTA/17/037', 'akinlabi@gmail.com', '47072', 'OTA/17/037', 'student', 1, NULL),
-(661, 'Olalekan Aliyah', 'OTA/17/038', 'akinlabi@gmail.com', '74974', 'OTA/17/038', 'student', 1, NULL),
-(662, 'Olokode Sodiq', 'OTA/17/039', 'akinlabi@gmail.com', '38241', 'OTA/17/039', 'student', 1, NULL),
-(663, 'Olusesi Abdulmalik', 'OTA/17/040', 'akinlabi@gmail.com', '78745', 'OTA/17/040', 'student', 1, NULL),
-(664, 'Omotosho Olugbenga', 'OTA/17/041', 'akinlabi@gmail.com', '61754', 'OTA/17/041', 'student', 1, NULL),
-(665, 'Owodunni Asmau', 'OTA/17/042', 'akinlabi@gmail.com', '69691', 'OTA/17/042', 'student', 1, NULL),
-(666, 'Oyeniyi Hassanah', 'OTA/17/043', 'akinlabi@gmail.com', '85852', 'OTA/17/043', 'student', 1, NULL),
-(667, 'Salawu Inyah Hanifah', 'OTA/17/044', 'akinlabi@gmail.com', '89329', 'OTA/17/044', 'student', 1, NULL),
-(668, 'Shote Sidiqoh', 'OTA/17/045', 'akinlabi@gmail.com', '65038', 'OTA/17/045', 'student', 1, NULL),
-(669, 'Yusuf Mariam', 'OTA/17/046', 'akinlabi@gmail.com', '91358', 'OTA/17/046', 'student', 1, NULL),
-(670, 'Abimbola Tomilayo', 'OTA/17/047', 'akinlabi@gmail.com', '71613', 'OTA/17/047', 'student', 1, NULL),
-(671, 'Abiola Afolarin', 'OTA/17/048', 'akinlabi@gmail.com', '79275', 'OTA/17/048', 'student', 1, NULL),
-(672, 'Adebayo Anuoluwapo', 'OTA/17/049', 'akinlabi@gmail.com', '93052', 'OTA/17/049', 'student', 1, NULL),
-(673, 'Adefolarin Mofetoluwa', 'OTA/17/050', 'akinlabi@gmail.com', '44292', 'OTA/17/050', 'student', 1, NULL),
-(674, 'Adekunle Eniyi', 'OTA/17/051', 'akinlabi@gmail.com', '66862', 'OTA/17/051', 'student', 1, NULL),
-(675, 'Adelu Lateefah', 'OTA/17/052', 'akinlabi@gmail.com', '91094', 'OTA/17/052', 'student', 1, NULL),
-(676, 'Adeyanju Mubarak', 'OTA/17/053', 'akinlabi@gmail.com', '86195', 'OTA/17/053', 'student', 1, NULL),
-(677, 'Adeyeri Timileyin', 'OTA/17/054', 'akinlabi@gmail.com', '64352', 'OTA/17/054', 'student', 1, NULL),
-(678, 'Ajasa Tunbosun', 'OTA/17/055', 'akinlabi@gmail.com', '79422', 'OTA/17/055', 'student', 1, NULL),
-(679, 'Ajeigbe Hammed', 'OTA/17/056', 'akinlabi@gmail.com', '80047', 'OTA/17/056', 'student', 1, NULL),
-(680, 'Ajuwon Nifemi', 'OTA/17/057', 'akinlabi@gmail.com', '14011', 'OTA/17/057', 'student', 1, NULL),
-(681, 'Akintola Abdulroqeeb', 'OTA/17/058', 'akinlabi@gmail.com', '39658', 'OTA/17/058', 'student', 1, NULL),
-(682, 'Alabi Nuseybah', 'OTA/17/059', 'akinlabi@gmail.com', '81929', 'OTA/17/059', 'student', 1, NULL),
-(683, 'Amusan Hawaw', 'OTA/17/060', 'akinlabi@gmail.com', '24514', 'OTA/17/060', 'student', 1, NULL),
-(684, 'Amusat Abdulazeem', 'OTA/17/061', 'akinlabi@gmail.com', '67938', 'OTA/17/061', 'student', 1, NULL),
-(685, 'Atobatele Ibraheem', 'OTA/17/062', 'akinlabi@gmail.com', '46975', 'OTA/17/062', 'student', 1, NULL),
-(686, 'Ayoade Abdulfattah', 'OTA/17/063', 'akinlabi@gmail.com', '96143', 'OTA/17/063', 'student', 1, NULL),
-(687, 'Azeez Al-Azeem', 'OTA/17/064', 'akinlabi@gmail.com', '77455', 'OTA/17/064', 'student', 1, NULL),
-(688, 'Bolarinwa Funmi', 'OTA/17/065', 'akinlabi@gmail.com', '32562', 'OTA/17/065', 'student', 1, NULL),
-(689, 'Eyesan Peace', 'OTA/17/066', 'akinlabi@gmail.com', '29386', 'OTA/17/066', 'student', 1, NULL),
-(690, 'Ezenwanne Denis', 'OTA/17/067', 'akinlabi@gmail.com', '11035', 'OTA/17/067', 'student', 1, NULL),
-(691, 'Ibraheem Abdulrahmon', 'OTA/17/068', 'akinlabi@gmail.com', '97344', 'OTA/17/068', 'student', 1, NULL),
-(692, 'Ige Fareedah', 'OTA/17/069', 'akinlabi@gmail.com', '99391', 'OTA/17/069', 'student', 1, NULL),
-(693, 'Kelani Ahmed', 'OTA/17/070', 'akinlabi@gmail.com', '48953', 'OTA/17/070', 'student', 1, NULL),
-(694, 'Lawal Abdullah', 'OTA/17/071', 'akinlabi@gmail.com', '87740', 'OTA/17/071', 'student', 1, NULL),
-(695, 'Lawal Abdulrahmin', 'OTA/17/072', 'akinlabi@gmail.com', '34088', 'OTA/17/072', 'student', 1, NULL),
-(696, 'Lawal Muhammed', 'OTA/17/073', 'akinlabi@gmail.com', '21004', 'OTA/17/073', 'student', 1, NULL),
-(697, 'Luqman Abdulrahmon', 'OTA/17/074', 'akinlabi@gmail.com', '35571', 'OTA/17/074', 'student', 1, NULL),
-(698, 'Muse Abdulquyyum', 'OTA/17/075', 'akinlabi@gmail.com', '43232', 'OTA/17/075', 'student', 1, NULL),
-(699, 'Odunsi Success', 'OTA/17/076', 'akinlabi@gmail.com', '20666', 'OTA/17/076', 'student', 1, NULL),
-(700, 'Ogunbayi Abdulsomod', 'OTA/17/077', 'akinlabi@gmail.com', '61795', 'OTA/17/077', 'student', 1, NULL),
-(701, 'Ogunbona Habeeb', 'OTA/17/078', 'akinlabi@gmail.com', '69564', 'OTA/17/078', 'student', 1, NULL),
-(702, 'Ogunlana Ifeoluwa', 'OTA/17/079', 'akinlabi@gmail.com', '47770', 'OTA/17/079', 'student', 1, NULL),
-(703, 'Olajuwon Lateefah', 'OTA/17/080', 'akinlabi@gmail.com', '94388', 'OTA/17/080', 'student', 1, NULL),
-(704, 'Olanigan Abdulsalam ', 'OTA/17/081', 'akinlabi@gmail.com', '85875', 'OTA/17/081', 'student', 1, NULL),
-(705, 'Olufunsho Daniel', 'OTA/17/082', 'akinlabi@gmail.com', '40653', 'OTA/17/082', 'student', 1, NULL),
-(706, 'Olugbenga Favour', 'OTA/17/083', 'akinlabi@gmail.com', '42067', 'OTA/17/083', 'student', 1, NULL),
-(707, 'Olusipe Matilda', 'OTA/17/084', 'akinlabi@gmail.com', '91983', 'OTA/17/084', 'student', 1, NULL),
-(708, 'Osinowo Airat', 'OTA/17/085', 'akinlabi@gmail.com', '36928', 'OTA/17/085', 'student', 1, NULL),
-(709, 'Oyalowo Ali', 'OTA/17/086', 'akinlabi@gmail.com', '97276', 'OTA/17/086', 'student', 1, NULL),
-(710, 'Oyelowo David', 'OTA/17/087', 'akinlabi@gmail.com', '13685', 'OTA/17/087', 'student', 1, NULL),
-(711, 'Oyeniyi Husseinah', 'OTA/17/088', 'akinlabi@gmail.com', '21017', 'OTA/17/088', 'student', 1, NULL),
-(712, 'Salawu Faizah', 'OTA/17/089', 'akinlabi@gmail.com', '56681', 'OTA/17/089', 'student', 1, NULL),
-(713, 'Sogaolu Precious', 'OTA/17/090', 'akinlabi@gmail.com', '63297', 'OTA/17/090', 'student', 1, NULL),
-(714, 'Sulaimon Hassan', 'OTA/17/091', 'akinlabi@gmail.com', '76434', 'OTA/17/091', 'student', 1, NULL),
-(715, 'Yakubu Ahmed', 'OTA/17/092', 'akinlabi@gmail.com', '18954', 'OTA/17/092', 'student', 1, NULL),
-(716, 'Abiola Aaliyah', 'OTA/17/093', 'akinlabi@gmail.com', '41626', 'OTA/17/093', 'student', 1, NULL),
-(717, 'Abioye Wafeequah', 'OTA/17/094', 'akinlabi@gmail.com', '39352', 'OTA/17/094', 'student', 1, NULL),
-(718, 'Adebisi Adewole', 'OTA/17/095', 'akinlabi@gmail.com', '55934', 'OTA/17/095', 'student', 1, NULL),
-(719, 'Abdulazeez Mariam', 'OTA/17/096', 'akinlabi@gmail.com', '70765', 'OTA/17/096', 'student', 1, NULL),
-(720, 'Ajibade Habeeb', 'OTA/17/097', 'akinlabi@gmail.com', '12878', 'OTA/17/097', 'student', 1, NULL),
-(721, 'Akasoro Oyinkansola', 'OTA/17/098', 'akinlabi@gmail.com', '73303', 'OTA/17/098', 'student', 1, NULL),
-(722, 'Akinsola Fareedah', 'OTA/17/099', 'akinlabi@gmail.com', '60206', 'OTA/17/099', 'student', 1, NULL),
-(723, 'Akintola Nurudeen', 'OTA/17/100', 'akinlabi@gmail.com', '87688', 'OTA/17/100', 'student', 1, NULL),
-(724, 'Aregbesola Taiwo', 'OTA/17/101', 'akinlabi@gmail.com', '48536', 'OTA/17/101', 'student', 1, NULL),
-(725, 'Babawale Temiloluwa', 'OTA/17/102', 'akinlabi@gmail.com', '49962', 'OTA/17/102', 'student', 1, NULL),
-(726, 'Bakare Wasiu', 'OTA/17/103', 'akinlabi@gmail.com', '30339', 'OTA/17/103', 'student', 1, NULL),
-(727, 'Busari Toluwani', 'OTA/17/104', 'akinlabi@gmail.com', '98138', 'OTA/17/104', 'student', 1, NULL),
-(728, 'Fagbohun Mayowa', 'OTA/17/105', 'akinlabi@gmail.com', '22316', 'OTA/17/105', 'student', 1, NULL),
-(729, 'Fagbuyiro Tofunmi', 'OTA/17/106', 'akinlabi@gmail.com', '40158', 'OTA/17/106', 'student', 1, NULL),
-(730, 'Makinde Aisha', 'OTA/17/107', 'akinlabi@gmail.com', '71965', 'OTA/17/107', 'student', 1, NULL),
-(731, 'Oluwagboyega Praise', 'OTA/17/108', 'akinlabi@gmail.com', '50527', 'OTA/17/108', 'student', 1, NULL),
-(732, 'Ogundele Joel', 'OTA/17/109', 'akinlabi@gmail.com', '61149', 'OTA/17/109', 'student', 1, NULL),
-(733, 'Okanlawon Aminat', 'OTA/17/110', 'akinlabi@gmail.com', '89927', 'OTA/17/110', 'student', 1, NULL),
-(734, 'Oladapo Sumaya', 'OTA/17/111', 'akinlabi@gmail.com', '55882', 'OTA/17/111', 'student', 1, NULL),
-(735, 'Orisadare Hadiqoh', 'OTA/17/112', 'akinlabi@gmail.com', '20517', 'OTA/17/112', 'student', 1, NULL),
-(736, 'Sodipo Olatunbosun', 'OTA/17/113', 'akinlabi@gmail.com', '25049', 'OTA/17/113', 'student', 1, NULL),
-(737, 'Sogaolu Success', 'OTA/17/114', 'akinlabi@gmail.com', '38430', 'OTA/17/114', 'student', 1, NULL),
-(738, 'Sotayo Roheemat', 'OTA/17/115', 'akinlabi@gmail.com', '24539', 'OTA/17/115', 'student', 1, NULL),
-(739, 'Adedokun Oladunni', 'OTA/17/116', 'akinlabi@gmail.com', '35870', 'OTA/17/116', 'student', 1, NULL),
-(740, 'Adesoye Muneerah', 'OTA/17/117', 'akinlabi@gmail.com', '48761', 'OTA/17/117', 'student', 1, NULL),
-(741, 'Usman Aliyat', 'OTA/17/118', 'akinlabi@gmail.com', '86219', 'OTA/17/118', 'student', 1, NULL),
-(742, 'Yedenu Dorcas', 'OTA/17/119', 'akinlabi@gmail.com', '74551', 'OTA/17/119', 'student', 1, NULL),
-(743, 'Abdulwaliy Khashyah', 'OTA/17/120', 'akinlabi@gmail.com', '70735', 'OTA/17/120', 'student', 1, NULL),
-(744, 'Sonaike Zulfah', 'OTA/17/121', 'akinlabi@gmail.com', '38382', 'OTA/17/121', 'student', 1, NULL),
-(745, 'Abdulazeez  Manifah', 'OTA/21/0113', 'akinlabi@gmail.com', '46766', 'OTA/21/0113', 'student', 1, NULL),
-(746, 'Abiodun  Princewill', 'OTA/21/0114', 'akinlabi@gmail.com', '66740', 'OTA/21/0114', 'student', 1, NULL),
-(747, 'Adewole  David', 'OTA/21/0115', 'akinlabi@gmail.com', '37714', 'OTA/21/0115', 'student', 1, NULL),
-(748, 'Arogundade  Zainab', 'OTA/21/0116', 'akinlabi@gmail.com', '20544', 'OTA/21/0116', 'student', 1, NULL),
-(749, 'Ayooluwa  Emmanuel', 'OTA/21/0117', 'akinlabi@gmail.com', '62500', 'OTA/21/0117', 'student', 1, NULL),
-(750, 'Funmilayo  Oyinsansola', 'OTA/21/0118', 'akinlabi@gmail.com', '41059', 'OTA/21/0118', 'student', 1, NULL),
-(751, 'Hamad-Quazeem  Ayishah', 'OTA/21/0119', 'akinlabi@gmail.com', '13878', 'OTA/21/0119', 'student', 1, NULL),
-(752, 'Jimoh  Olorunwa', 'OTA/21/0120', 'akinlabi@gmail.com', '69274', 'OTA/21/0120', 'student', 1, NULL),
-(753, 'Kuranga  Opeyemi', 'OTA/21/0121', 'akinlabi@gmail.com', '68806', 'OTA/21/0121', 'student', 1, NULL),
-(754, 'Lawal  Abidah', 'OTA/21/0122', 'akinlabi@gmail.com', '91633', 'OTA/21/0122', 'student', 1, NULL),
-(755, 'Obianwu  Chinelo', 'OTA/21/0123', 'akinlabi@gmail.com', '58277', 'OTA/21/0123', 'student', 1, NULL),
-(756, 'Olasoju  Olamide', 'OTA/21/0124', 'akinlabi@gmail.com', '83792', 'OTA/21/0124', 'student', 1, NULL),
-(757, 'Onuigbo  Amanda', 'OTA/21/0125', 'akinlabi@gmail.com', '82692', 'OTA/21/0125', 'student', 1, NULL),
-(758, 'Oyi  Jonathan', 'OTA/21/0126', 'akinlabi@gmail.com', '40544', 'OTA/21/0126', 'student', 1, NULL),
-(759, 'Shodiya  Darasimi', 'OTA/21/0127', 'akinlabi@gmail.com', '54052', 'OTA/21/0127', 'student', 1, NULL),
-(760, 'Ugwueze  Mike', 'OTA/21/0128', 'akinlabi@gmail.com', '37860', 'OTA/21/0128', 'student', 1, NULL),
-(761, 'Ugwueze  Samuel', 'OTA/21/0129', 'akinlabi@gmail.com', '18749', 'OTA/21/0129', 'student', 1, NULL),
-(762, 'Oyelabi Adetoro', 'P27', 'p27@otatotalacademy.org', '62847', 'P27', 'teacher', 1, NULL),
-(763, 'ORILOYE RUTH', 'P30', 'p30@otatotalacademy.org', '60813', 'P30', 'teacher', 1, NULL),
-(764, 'Folalu Barakah', 'P31', 'p31@otatotalacademy.org', '29157', 'P31', 'teacher', 1, NULL),
-(765, 'Bamigboye Halimah', 'P33', 'p33@otatotalacademy.org', '77127', 'P33', 'teacher', 1, NULL),
-(766, 'OBISESAN OLUWATOOSIN', 'PT01', 'pt01@otatotalacademy.org', '23490', 'PT01', 'teacher', 1, NULL),
-(767, 'Alaba Rebecca', 'PT02', 'pt02@otatotalacademy.org', '36011', 'PT02', 'teacher', 1, NULL),
-(768, 'AYILARAN KAFAYAT', 'PT03', 'pt03@otatotalacademy.org', '92599', 'PT03', 'teacher', 1, NULL),
-(769, 'Lateef Olalekan', 'S01', 's01@otatotalacademy.org', '23591', 'S01', 'teacher', 1, NULL),
-(770, 'Aloba Simiat', 'S04', 's04@otatotalacademy.org', '99072', 'S04', 'teacher', 1, NULL),
-(771, 'Ibraheem Sherifat', 'S07', 's07@otatotalacademy.org', '14161', 'S07', 'teacher', 1, NULL),
-(772, 'Oteri Reuben', 'S08', 's08@otatotalacademy.org', '14829', 'S08', 'teacher', 1, NULL),
-(773, 'DUROJAYE OLUWADAMILOLA', 'S10', 's10@otatotalacademy.org', '37533', 'S10', 'teacher', 1, NULL),
-(774, 'Ajasa Ramon', 'S11', 's11@otatotalacademy.org', '39373', 'S11', 'teacher', 1, NULL),
-(775, 'ADEDOKUN SAHEED', 'S12', 's12@otatotalacademy.org', '12781', 'S12', 'teacher', 1, NULL),
-(776, 'OYADEYI ABDUL AZEEZ', 'S13', 's13@otatotalacademy.org', '94051', 'S13', 'teacher', 1, NULL),
-(777, 'Oludeji Kafayat', 'S14', 's14@otatotalacademy.org', '24820', 'S14', 'teacher', 1, NULL),
-(778, 'Olagunju Temitope', 'S15', 's15@otatotalacademy.org', '99394', 'S15', 'teacher', 1, NULL),
-(779, 'Idris Abdulrazaq', 'S16', 's16@otatotalacademy.org', '56566', 'S16', 'teacher', 1, NULL),
-(780, 'Hamzat Afeez', 'S17', 's17@otatotalacademy.org', '53745', 'S17', 'teacher', 1, NULL),
-(781, 'Ogunade Yetunde', 'S19', 's19@otatotalacademy.org', '42103', 'S19', 'teacher', 1, NULL),
-(782, 'Adewole Janet', 'S20', 's20@otatotalacademy.org', '51839', 'S20', 'teacher', 1, NULL),
-(783, 'Obianwu Amaka', 'S21', 's21@otatotalacademy.org', '76531', 'S21', 'teacher', 1, NULL),
-(784, 'Nurudeen Kafayat', 'S23', 's23@otatotalacademy.org', '38286', 'S23', 'teacher', 1, NULL),
-(785, 'Amos Oluwadamilare', 'S24', 's24@otatotalacademy.org', '79454', 'S24', 'teacher', 1, NULL),
-(786, 'Moshood Zainab', 'S25', 's25@otatotalacademy.org', '29199', 'S25', 'teacher', 1, NULL),
-(787, 'AINA ABOLAJI', 'S26', 's26@otatotalacademy.org', '27430', 'S26', 'teacher', 1, NULL),
-(788, 'Ogundeyi Grace', 'S32', 's32@otatotalacademy.org', '18701', 'S32', 'teacher', 1, NULL),
-(789, 'Oniyide Mariam', 'S34', 's34@otatotalacademy.org', '31639', 'S34', 'teacher', 1, NULL),
-(790, 'Mojoyinola Abd\'Afeez', 'S36', 's36@otatotalacademy.org', '61707', 'S36', 'teacher', 1, NULL),
-(791, 'Yusuff Uthman', 'S37', 's37@otatotalacademy.org', '13111', 'S37', 'teacher', 1, NULL),
-(792, 'Oyetayo Adebayo', 'J08', 'j08@otatotalacademy.org', '54911', 'J08', 'teacher', 1, NULL),
-(793, 'Alebiosu Olawale', 'J06', 'j06@otatotalacademy.org', '20778', 'J06', 'teacher', 1, NULL),
-(794, 'OGUNBAMBi LUKMAN', 'S18', 's18@otatotalacademy.org', '85570', 'S18', 'teacher', 1, NULL),
-(795, 'Bello- Oyeniyi Aisha', 'S29', 's29@otatotalacademy.org', '90462', 'S29', 'teacher', 1, NULL),
-(796, 'Qazeem Rafiah', 'S09', 's09@otatotalacademy.org', '54491', 'S09', 'teacher', 1, NULL),
-(797, 'Jimoh Muyideen', 'S03', 's03@otatotalacademy.org', '12647', 'S03', 'teacher', 1, NULL),
-(798, 'Tafa Isiaka', 'SO5', 'so5@otatotalacademy.org', '96734', 'SO5', 'teacher', 1, NULL),
-(799, 'Rasaq Iyabode', 'P29', 'p29@otatotalacademy.org', '10482', 'P29', 'teacher', 1, NULL),
-(800, 'ORILOYE RUTH', 'P30', 'p30@otatotalacademy.org', '67442', 'P30', 'teacher', 1, NULL),
-(801, 'Emmanuel Tobiloba', 'P32', 'p32@otatotalacademy.org', '83398', 'P32', 'teacher', 1, NULL),
-(802, 'EFUNWOLE MUYIWA', 'J14', 'j14@otatotalacademy.org', '62512', 'J14', 'teacher', 1, NULL),
-(803, 'Rabiu Rabiu', 'J04', 'j04@otatotalacademy.org', '89108', 'J04', 'teacher', 1, NULL),
-(804, 'Orimogunje Tolulope', 'S31', 's31@otatotalacademy.org', '47936', 'S31', 'teacher', 1, NULL),
-(805, 'Amojo Babalola', 'J07', 'j07@otatotalacademy.org', '96806', 'J07', 'teacher', 1, NULL),
-(806, 'Kolapo Yusuf', 'J19', 'j19@otatotalacademy.org', '44199', 'J19', 'teacher', 1, NULL),
-(807, 'Ibrahim Moshood', 'J01', 'j01@otatotalacademy.org', '73448', 'J01', 'teacher', 1, NULL),
-(808, 'Fatai Ganiyu', 'S01', 's01@otatotalacademy.org', '59913', 'S01', 'teacher', 1, NULL),
-(809, 'Adeniran Ridwanullah', 'S40', 's40@otatotalacademy.org', '94205', 'S40', 'teacher', 1, NULL),
-(810, 'Chukwuma Greatgoodness', 'J29', 'j29@otatotalacademy.org', '72556', 'J29', 'teacher', 1, NULL),
-(811, 'fff', 'habeebkabeer@gmail.com', 'admin@gmail.com', 'STU/2022/0811/UmNp', 'STU/2022/0811/UmNp', 'student', 1, NULL);
+(1, 'Abdulazeez Jamiu', 'abdulazeezjamiu', 'abdulazeezjamiu@gmail.com', '1234', 'OTA/22/001', 'student', 0, NULL),
+(2, 'Abdulmaroof Abdulr', 'abdulmaroofabdulr', 'abdulmaroofabdulr@gmail.com', '1234', 'OTA/22/002', 'student', 0, NULL),
+(3, 'Abdulrasaq Hassan', 'abdulrasaqhassan', 'abdulrasaqhassan@gmail.com', '1234', 'OTA/22/003', 'student', 0, NULL),
+(4, 'Ahmad Ridwan', 'ahmadridwan', 'ahmadridwan@gmail.com', '1234', 'OTA/22/004', 'student', 0, NULL),
+(5, 'Fashola Adnan', 'fasholadnan', 'fasholadnan@gmail.com', '1234', 'OTA/22/005', 'student', 0, NULL),
+(6, 'Moh\'d\'awwal Hassan', 'mohdawwalhassan', 'mohdawwalhassan@gmail.com', '1234', 'OTA/22/006', 'student', 0, NULL),
+(7, 'Nurudeen Faruq', 'nurudeenfaruq', 'nurudeenfaruq@gmail.com', '1234', 'OTA/22/007', 'student', 0, NULL),
+(8, 'Raji Mahbub', 'rajimahbub', 'rajimahbub@gmail.com', '1234', 'OTA/22/008', 'student', 0, NULL),
+(9, 'Shalahudeen Shalah', 'shalahudeenshalah', 'shalahudeenshalah@gmail.com', '1234', 'OTA/22/009', 'student', 0, NULL),
+(10, 'Soliu Abdulsalam', 'soliuabdulsalam', 'soliuabdulsalam@gmail.com', '1234', 'OTA/22/010', 'student', 0, NULL),
+(11, 'Adebisi Aliyah', 'adebisialiyah', 'adebisialiyah@gmail.com', '1234', 'OTA/22/011', 'student', 0, NULL),
+(12, 'Adebisi Rokeebah', 'adebisirokeebah', 'adebisirokeebah@gmail.com', '1234', 'OTA/22/012', 'student', 0, NULL),
+(13, 'Adebisi Qudrotullahi', 'adebisiqudrotullahi', 'adebisiqudrotullahi@gmail.com', '1234', 'OTA/22/013', 'student', 0, NULL),
+(14, 'Ahmadu Memunah', 'ahmadumemunah', 'ahmadumemunah@gmail.com', '1234', 'OTA/22/014', 'student', 0, NULL),
+(15, 'Ismail Soffiyah', 'ismailsoffiyah', 'ismailsoffiyah@gmail.com', '1234', 'OTA/22/015', 'student', 0, NULL),
+(16, 'Nafiu Faeedah', 'nafiufaeedah', 'nafiufaeedah@gmail.com', '1234', 'OTA/22/016', 'student', 0, NULL),
+(17, 'Olaiya Mordiyah', 'olaiyamordiyah', 'olaiyamordiyah@gmail.com', '1234', 'OTA/22/017', 'student', 0, NULL),
+(20, 'Alao Nafisat', 'Harnarf', 'harnarf581@gmail.com', '1234', '376945/BS', 'teacher', 1, NULL),
+(19, 'Kolawole Aminat', 'Aminat', 'alaonafisat1@gmail.com', '1234', '644247/Ri', 'teacher', 1, NULL);
 
 --
 -- Indexes for dumped tables
@@ -3013,6 +2306,18 @@ ALTER TABLE `class_track`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `complaints`
+--
+ALTER TABLE `complaints`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `complaint_notifications`
+--
+ALTER TABLE `complaint_notifications`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `result`
 --
 ALTER TABLE `result`
@@ -3025,10 +2330,22 @@ ALTER TABLE `sessions`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `set_payment`
 --
 ALTER TABLE `set_payment`
   ADD PRIMARY KEY (`payment_id`);
+
+--
+-- Indexes for table `site_settings`
+--
+ALTER TABLE `site_settings`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `students_info`
@@ -3068,7 +2385,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin_login`
 --
 ALTER TABLE `admin_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `admission_admin`
@@ -3086,25 +2403,37 @@ ALTER TABLE `admission_user`
 -- AUTO_INCREMENT for table `classes`
 --
 ALTER TABLE `classes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `class_assign`
 --
 ALTER TABLE `class_assign`
-  MODIFY `assign_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=231;
+  MODIFY `assign_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=239;
 
 --
 -- AUTO_INCREMENT for table `class_track`
 --
 ALTER TABLE `class_track`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=704;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=705;
+
+--
+-- AUTO_INCREMENT for table `complaints`
+--
+ALTER TABLE `complaints`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `complaint_notifications`
+--
+ALTER TABLE `complaint_notifications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `result`
 --
 ALTER TABLE `result`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=498;
 
 --
 -- AUTO_INCREMENT for table `sessions`
@@ -3113,40 +2442,52 @@ ALTER TABLE `sessions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `set_payment`
 --
 ALTER TABLE `set_payment`
-  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `site_settings`
+--
+ALTER TABLE `site_settings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `students_info`
 --
 ALTER TABLE `students_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=743;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=744;
 
 --
 -- AUTO_INCREMENT for table `student_payment`
 --
 ALTER TABLE `student_payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `teachers_info`
 --
 ALTER TABLE `teachers_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=812;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
